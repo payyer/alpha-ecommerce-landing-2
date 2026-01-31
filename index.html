@@ -19,11 +19,589 @@
 </head>
 
 <body>
+  <!-- Announcement Bar -->
+  <div class="bg-primary text-white h-[55px] pc:h-[39px] relative z-100">
+    <div
+      class="flex h-full flex-col pc:flex-row pc:gap-4 items-center justify-center text-center  font-isl-andvari text-[14px] font-bold  tracking-[0.28px] uppercase">
+      <span>2026 Starts Now:</span>
+      <span>35% Off — Feel like yourself again</span>
+    </div>
+
+    <div class="hidden pc:block pc:absolute pc:top-[50%] pc:translate-y-[-50%] pc:right-[40px]">
+      <button id="header-currency-selector" class="flex items-end cursor-pointer hover:opacity-80 transition-opacity">
+        <span id="header-currency-code" class="text-[14px] font-bold leading-[135%] font-isl-andvari">USD</span>
+        <svg width="12" height="13" class="icon icon-caret transition-transform duration-200" viewBox="0 0 12 13"
+          fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M9 4.8125L5.625 8.1875L2.25 4.8125" stroke="white" stroke-width="2" stroke-linecap="square"></path>
+        </svg>
+      </button>
+
+      <!-- PC Currency Dropdown -->
+      <div id="pc-currency-dropdown"
+        class="absolute top-full right-0 mt-2 w-[280px] bg-white border border-[rgba(80,0,11,0.1)] opacity-0 invisible transition-all duration-200 ease-out overflow-hidden flex flex-col shadow-lg">
+        <!-- Search Box with Floating Label -->
+        <div class="p-[15px] pb-[6px]">
+          <div class="search-container">
+            <input type="text" id="pc-currency-search" placeholder="SEARCH" class="search-input !h-[48px]">
+            <label for="pc-currency-search" class="search-label">SEARCH</label>
+          </div>
+        </div>
+        <!-- Country List -->
+        <div id="pc-country-list" class="flex-1 overflow-y-auto max-h-[300px] pt-[6px] pb-[9px]">
+          <button class="pc-country-item country-item-btn country-item" data-currency="AUD" data-country="AUSTRALIA">
+            <div class="flex items-center">
+              <span class="country-checkmark">
+                <svg class="icon icon-checkmark" width="12" height="9" viewBox="0 0 12 9" fill="none"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M11.35.643a.5.5 0 01.006.707l-6.77 6.886a.5.5 0 01-.719-.006L.638 4.845a.5.5 0 11.724-.69l2.872 3.011 6.41-6.517a.5.5 0 01.707-.006h-.001z"
+                    fill="currentColor"></path>
+                </svg>
+              </span>
+              <span>AUSTRALIA</span>
+            </div>
+          </button>
+          <button class="pc-country-item country-item-btn country-item" data-currency="EUR" data-country="BELGIUM">
+            <div class="flex items-center">
+              <span class="country-checkmark">
+                <svg class="icon icon-checkmark" width="12" height="9" viewBox="0 0 12 9" fill="none"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M11.35.643a.5.5 0 01.006.707l-6.77 6.886a.5.5 0 01-.719-.006L.638 4.845a.5.5 0 11.724-.69l2.872 3.011 6.41-6.517a.5.5 0 01.707-.006h-.001z"
+                    fill="currentColor"></path>
+                </svg>
+              </span>
+              <span>BELGIUM</span>
+            </div>
+          </button>
+          <button class="pc-country-item country-item-btn country-item" data-currency="CAD" data-country="CANADA">
+            <div class="flex items-center">
+              <span class="country-checkmark">
+                <svg class="icon icon-checkmark" width="12" height="9" viewBox="0 0 12 9" fill="none"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M11.35.643a.5.5 0 01.006.707l-6.77 6.886a.5.5 0 01-.719-.006L.638 4.845a.5.5 0 11.724-.69l2.872 3.011 6.41-6.517a.5.5 0 01.707-.006h-.001z"
+                    fill="currentColor"></path>
+                </svg>
+              </span>
+              <span>CANADA</span>
+            </div>
+          </button>
+          <button class="pc-country-item country-item-btn country-item" data-currency="EUR" data-country="FRANCE">
+            <div class="flex items-center">
+              <span class="country-checkmark">
+                <svg class="icon icon-checkmark" width="12" height="9" viewBox="0 0 12 9" fill="none"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M11.35.643a.5.5 0 01.006.707l-6.77 6.886a.5.5 0 01-.719-.006L.638 4.845a.5.5 0 11.724-.69l2.872 3.011 6.41-6.517a.5.5 0 01.707-.006h-.001z"
+                    fill="currentColor"></path>
+                </svg>
+              </span>
+              <span>FRANCE</span>
+            </div>
+          </button>
+          <button class="pc-country-item country-item-btn country-item" data-currency="EUR" data-country="GERMANY">
+            <div class="flex items-center">
+              <span class="country-checkmark">
+                <svg class="icon icon-checkmark" width="12" height="9" viewBox="0 0 12 9" fill="none"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M11.35.643a.5.5 0 01.006.707l-6.77 6.886a.5.5 0 01-.719-.006L.638 4.845a.5.5 0 11.724-.69l2.872 3.011 6.41-6.517a.5.5 0 01.707-.006h-.001z"
+                    fill="currentColor"></path>
+                </svg>
+              </span>
+              <span>GERMANY</span>
+            </div>
+          </button>
+          <button class="pc-country-item country-item-btn country-item" data-currency="HKD"
+            data-country="HONG KONG SAR">
+            <div class="flex items-center">
+              <span class="country-checkmark">
+                <svg class="icon icon-checkmark" width="12" height="9" viewBox="0 0 12 9" fill="none"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M11.35.643a.5.5 0 01.006.707l-6.77 6.886a.5.5 0 01-.719-.006L.638 4.845a.5.5 0 11.724-.69l2.872 3.011 6.41-6.517a.5.5 0 01.707-.006h-.001z"
+                    fill="currentColor"></path>
+                </svg>
+              </span>
+              <span>HONG KONG SAR</span>
+            </div>
+          </button>
+          <button class="pc-country-item country-item-btn country-item" data-currency="HUF" data-country="HUNGARY">
+            <div class="flex items-center">
+              <span class="country-checkmark">
+                <svg class="icon icon-checkmark" width="12" height="9" viewBox="0 0 12 9" fill="none"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M11.35.643a.5.5 0 01.006.707l-6.77 6.886a.5.5 0 01-.719-.006L.638 4.845a.5.5 0 11.724-.69l2.872 3.011 6.41-6.517a.5.5 0 01.707-.006h-.001z"
+                    fill="currentColor"></path>
+                </svg>
+              </span>
+              <span>HUNGARY</span>
+            </div>
+          </button>
+          <button class="pc-country-item country-item-btn country-item" data-currency="IDR" data-country="INDONESIA">
+            <div class="flex items-center">
+              <span class="country-checkmark">
+                <svg class="icon icon-checkmark" width="12" height="9" viewBox="0 0 12 9" fill="none"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M11.35.643a.5.5 0 01.006.707l-6.77 6.886a.5.5 0 01-.719-.006L.638 4.845a.5.5 0 11.724-.69l2.872 3.011 6.41-6.517a.5.5 0 01.707-.006h-.001z"
+                    fill="currentColor"></path>
+                </svg>
+              </span>
+              <span>INDONESIA</span>
+            </div>
+          </button>
+          <button class="pc-country-item country-item-btn country-item" data-currency="ILS" data-country="ISRAEL">
+            <div class="flex items-center">
+              <span class="country-checkmark">
+                <svg class="icon icon-checkmark" width="12" height="9" viewBox="0 0 12 9" fill="none"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M11.35.643a.5.5 0 01.006.707l-6.77 6.886a.5.5 0 01-.719-.006L.638 4.845a.5.5 0 11.724-.69l2.872 3.011 6.41-6.517a.5.5 0 01.707-.006h-.001z"
+                    fill="currentColor"></path>
+                </svg>
+              </span>
+              <span>ISRAEL</span>
+            </div>
+          </button>
+          <button class="pc-country-item country-item-btn country-item" data-currency="EUR" data-country="ITALY">
+            <div class="flex items-center">
+              <span class="country-checkmark">
+                <svg class="icon icon-checkmark" width="12" height="9" viewBox="0 0 12 9" fill="none"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M11.35.643a.5.5 0 01.006.707l-6.77 6.886a.5.5 0 01-.719-.006L.638 4.845a.5.5 0 11.724-.69l2.872 3.011 6.41-6.517a.5.5 0 01.707-.006h-.001z"
+                    fill="currentColor"></path>
+                </svg>
+              </span>
+              <span>ITALY</span>
+            </div>
+          </button>
+          <button class="pc-country-item country-item-btn country-item" data-currency="JPY" data-country="JAPAN">
+            <div class="flex items-center">
+              <span class="country-checkmark">
+                <svg class="icon icon-checkmark" width="12" height="9" viewBox="0 0 12 9" fill="none"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M11.35.643a.5.5 0 01.006.707l-6.77 6.886a.5.5 0 01-.719-.006L.638 4.845a.5.5 0 11.724-.69l2.872 3.011 6.41-6.517a.5.5 0 01.707-.006h-.001z"
+                    fill="currentColor"></path>
+                </svg>
+              </span>
+              <span>JAPAN</span>
+            </div>
+          </button>
+          <button class="pc-country-item country-item-btn country-item" data-currency="MYR" data-country="MALAYSIA">
+            <div class="flex items-center">
+              <span class="country-checkmark">
+                <svg class="icon icon-checkmark" width="12" height="9" viewBox="0 0 12 9" fill="none"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M11.35.643a.5.5 0 01.006.707l-6.77 6.886a.5.5 0 01-.719-.006L.638 4.845a.5.5 0 11.724-.69l2.872 3.011 6.41-6.517a.5.5 0 01.707-.006h-.001z"
+                    fill="currentColor"></path>
+                </svg>
+              </span>
+              <span>MALAYSIA</span>
+            </div>
+          </button>
+          <button class="pc-country-item country-item-btn country-item" data-currency="EUR" data-country="NETHERLANDS">
+            <div class="flex items-center">
+              <span class="country-checkmark">
+                <svg class="icon icon-checkmark" width="12" height="9" viewBox="0 0 12 9" fill="none"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M11.35.643a.5.5 0 01.006.707l-6.77 6.886a.5.5 0 01-.719-.006L.638 4.845a.5.5 0 11.724-.69l2.872 3.011 6.41-6.517a.5.5 0 01.707-.006h-.001z"
+                    fill="currentColor"></path>
+                </svg>
+              </span>
+              <span>NETHERLANDS</span>
+            </div>
+          </button>
+          <button class="pc-country-item country-item-btn country-item" data-currency="NZD" data-country="NEW ZEALAND">
+            <div class="flex items-center">
+              <span class="country-checkmark">
+                <svg class="icon icon-checkmark" width="12" height="9" viewBox="0 0 12 9" fill="none"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M11.35.643a.5.5 0 01.006.707l-6.77 6.886a.5.5 0 01-.719-.006L.638 4.845a.5.5 0 11.724-.69l2.872 3.011 6.41-6.517a.5.5 0 01.707-.006h-.001z"
+                    fill="currentColor"></path>
+                </svg>
+              </span>
+              <span>NEW ZEALAND</span>
+            </div>
+          </button>
+          <button class="pc-country-item country-item-btn country-item" data-currency="PHP" data-country="PHILIPPINES">
+            <div class="flex items-center">
+              <span class="country-checkmark">
+                <svg class="icon icon-checkmark" width="12" height="9" viewBox="0 0 12 9" fill="none"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M11.35.643a.5.5 0 01.006.707l-6.77 6.886a.5.5 0 01-.719-.006L.638 4.845a.5.5 0 11.724-.69l2.872 3.011 6.41-6.517a.5.5 0 01.707-.006h-.001z"
+                    fill="currentColor"></path>
+                </svg>
+              </span>
+              <span>PHILIPPINES</span>
+            </div>
+          </button>
+          <button class="pc-country-item country-item-btn country-item" data-currency="PLN" data-country="POLAND">
+            <div class="flex items-center">
+              <span class="country-checkmark">
+                <svg class="icon icon-checkmark" width="12" height="9" viewBox="0 0 12 9" fill="none"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M11.35.643a.5.5 0 01.006.707l-6.77 6.886a.5.5 0 01-.719-.006L.638 4.845a.5.5 0 11.724-.69l2.872 3.011 6.41-6.517a.5.5 0 01.707-.006h-.001z"
+                    fill="currentColor"></path>
+                </svg>
+              </span>
+              <span>POLAND</span>
+            </div>
+          </button>
+          <button class="pc-country-item country-item-btn country-item" data-currency="SGD" data-country="SINGAPORE">
+            <div class="flex items-center">
+              <span class="country-checkmark">
+                <svg class="icon icon-checkmark" width="12" height="9" viewBox="0 0 12 9" fill="none"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M11.35.643a.5.5 0 01.006.707l-6.77 6.886a.5.5 0 01-.719-.006L.638 4.845a.5.5 0 11.724-.69l2.872 3.011 6.41-6.517a.5.5 0 01.707-.006h-.001z"
+                    fill="currentColor"></path>
+                </svg>
+              </span>
+              <span>SINGAPORE</span>
+            </div>
+          </button>
+          <button class="pc-country-item country-item-btn country-item" data-currency="KRW" data-country="SOUTH KOREA">
+            <div class="flex items-center">
+              <span class="country-checkmark">
+                <svg class="icon icon-checkmark" width="12" height="9" viewBox="0 0 12 9" fill="none"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M11.35.643a.5.5 0 01.006.707l-6.77 6.886a.5.5 0 01-.719-.006L.638 4.845a.5.5 0 11.724-.69l2.872 3.011 6.41-6.517a.5.5 0 01.707-.006h-.001z"
+                    fill="currentColor"></path>
+                </svg>
+              </span>
+              <span>SOUTH KOREA</span>
+            </div>
+          </button>
+          <button class="pc-country-item country-item-btn country-item" data-currency="SEK" data-country="SWEDEN">
+            <div class="flex items-center">
+              <span class="country-checkmark">
+                <svg class="icon icon-checkmark" width="12" height="9" viewBox="0 0 12 9" fill="none"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M11.35.643a.5.5 0 01.006.707l-6.77 6.886a.5.5 0 01-.719-.006L.638 4.845a.5.5 0 11.724-.69l2.872 3.011 6.41-6.517a.5.5 0 01.707-.006h-.001z"
+                    fill="currentColor"></path>
+                </svg>
+              </span>
+              <span>SWEDEN</span>
+            </div>
+          </button>
+          <button class="pc-country-item country-item-btn country-item" data-currency="CHF" data-country="SWITZERLAND">
+            <div class="flex items-center">
+              <span class="country-checkmark">
+                <svg class="icon icon-checkmark" width="12" height="9" viewBox="0 0 12 9" fill="none"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M11.35.643a.5.5 0 01.006.707l-6.77 6.886a.5.5 0 01-.719-.006L.638 4.845a.5.5 0 11.724-.69l2.872 3.011 6.41-6.517a.5.5 0 01.707-.006h-.001z"
+                    fill="currentColor"></path>
+                </svg>
+              </span>
+              <span>SWITZERLAND</span>
+            </div>
+          </button>
+          <button class="pc-country-item country-item-btn country-item" data-currency="TWD" data-country="TAIWAN">
+            <div class="flex items-center">
+              <span class="country-checkmark">
+                <svg class="icon icon-checkmark" width="12" height="9" viewBox="0 0 12 9" fill="none"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M11.35.643a.5.5 0 01.006.707l-6.77 6.886a.5.5 0 01-.719-.006L.638 4.845a.5.5 0 11.724-.69l2.872 3.011 6.41-6.517a.5.5 0 01.707-.006h-.001z"
+                    fill="currentColor"></path>
+                </svg>
+              </span>
+              <span>TAIWAN</span>
+            </div>
+          </button>
+          <button class="pc-country-item country-item-btn country-item" data-currency="AED"
+            data-country="UNITED ARAB EMIRATES">
+            <div class="flex items-center">
+              <span class="country-checkmark">
+                <svg class="icon icon-checkmark" width="12" height="9" viewBox="0 0 12 9" fill="none"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M11.35.643a.5.5 0 01.006.707l-6.77 6.886a.5.5 0 01-.719-.006L.638 4.845a.5.5 0 11.724-.69l2.872 3.011 6.41-6.517a.5.5 0 01.707-.006h-.001z"
+                    fill="currentColor"></path>
+                </svg>
+              </span>
+              <span class="text-left">UNITED ARAB EMIRATES</span>
+            </div>
+          </button>
+          <button class="pc-country-item country-item-btn country-item" data-currency="GBP"
+            data-country="UNITED KINGDOM">
+            <div class="flex items-center">
+              <span class="country-checkmark">
+                <svg class="icon icon-checkmark" width="12" height="9" viewBox="0 0 12 9" fill="none"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M11.35.643a.5.5 0 01.006.707l-6.77 6.886a.5.5 0 01-.719-.006L.638 4.845a.5.5 0 11.724-.69l2.872 3.011 6.41-6.517a.5.5 0 01.707-.006h-.001z"
+                    fill="currentColor"></path>
+                </svg>
+              </span>
+              <span>UNITED KINGDOM</span>
+            </div>
+          </button>
+          <button class="pc-country-item country-item-btn country-item active" data-currency="USD"
+            data-country="UNITED STATES">
+            <div class="flex items-center">
+              <span class="country-checkmark">
+                <svg class="icon icon-checkmark" width="12" height="9" viewBox="0 0 12 9" fill="none"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M11.35.643a.5.5 0 01.006.707l-6.77 6.886a.5.5 0 01-.719-.006L.638 4.845a.5.5 0 11.724-.69l2.872 3.011 6.41-6.517a.5.5 0 01.707-.006h-.001z"
+                    fill="currentColor"></path>
+                </svg>
+              </span>
+              <span>UNITED STATES</span>
+            </div>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- Header / Navigation -->
-  <header>
-    <!-- Mobile: Hamburger, Logo, Cart -->
-    <!-- PC: Logo, Nav Links, Icons -->
+  <header class="sticky top-0 z-99 bg-white border-b border-gray-border/50 pc:h-[64px]">
+    <nav
+      class="container-custom max-w-[748px] px-[20px] tablet:max-w-[1500px] wide:px-[50px] flex items-center justify-between h-[56px] pc:h-[64px]  ">
+
+      <!-- Left: Mobile Menu Trigger (Hamburger/Close Toggle) -->
+      <div class="flex-1 flex items-center pc:hidden">
+        <button id="mobile-menu-toggle" class="text-primary" aria-label="Toggle Menu">
+          <!-- Hamburger Icon (visible by default) -->
+          <svg id="hamburger-icon" class="icon icon-hamburger" width="32" height="32" viewBox="0 0 32 32" fill="none"
+            xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M2 16H30" stroke="#A40011" stroke-width="2" stroke-linecap="square" stroke-linejoin="round"></path>
+            <path d="M2 7H30" stroke="#A40011" stroke-width="2" stroke-linecap="square" stroke-linejoin="round"></path>
+            <path d="M2 25H30" stroke="#A40011" stroke-width="2" stroke-linecap="square" stroke-linejoin="round"></path>
+          </svg>
+          <!-- Close Icon (hidden by default) -->
+          <svg id="close-icon" class="icon icon-close hidden" width="32" height="32" viewBox="0 0 32 32" fill="none"
+            xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M25.428 6.57227L6.57178 25.4284M25.428 25.4284L6.57184 6.57227" stroke="#A40011" stroke-width="2"
+              stroke-linecap="square" stroke-linejoin="round"></path>
+          </svg>
+        </button>
+      </div>
+
+      <!-- PC: Left Nav Links -->
+      <div class="hidden pc:flex flex-1 items-center font-medium ">
+        <a href="#" id="nav-shop" class="nav-link flex items-center gap-2 pl-0!"
+          style="padding-left: 0 !important;"><span>Shop</span><svg width="12" height="12" viewBox="0 0 12 12"
+            class="icon icon-caret" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"
+            style="transform: none;">
+            <path d="M9 4.3125L5.625 7.6875L2.25 4.3125" stroke="#50000B" stroke-width="2" stroke-linecap="square">
+            </path>
+          </svg>
+        </a>
+        <a href="#" class="nav-link"><span>Science</span></a>
+        <a href="#" class="nav-link"><span>The Beckham Stack</span></a>
+        <a href="#" class="nav-link"><span>Welcome from David</span></a>
+      </div>
+
+      <!-- Center: Logo -->
+      <div class="flex-none flex justify-center">
+        <a href="/" class="flex items-center">
+          <!-- Logo text styled to match "I M 8" with dots -->
+          <img src="https://im8health.com/cdn/shop/files/Header-Logo-New.svg?v=1729066833&width=143"
+            class="w-[95px] h-auto" loading="eager" fetchpriority="high" alt="IM8">
+        </a>
+      </div>
+
+      <!-- Right: Action Icons -->
+      <div class="flex-1 flex items-center justify-end text-primary ">
+        <a href="#" class="nav-link"><span>Reviews</span></a>
+        <a href="#" class="nav-link"><span>Ingredients</span></a>
+        <a href="#" class="nav-link"><span>Discover</span></a>
+        <!-- Account Icon (PC Only or both depending on exact design) -->
+        <a href="#" aria-label="Account" class="pr-2 pc:pl-[7px] pc:pr-[12px]">
+          <svg class="text-primary pc:text-shadow-primary-deep" width="32" height="32" viewBox="0 0 32 32" fill="none"
+            xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M3 30C3 22.82 8.82 17 16 17C23.18 17 29 22.82 29 30" class="stroke-primary pc:stroke-primary-deep"
+              stroke-width="2" stroke-miterlimit="10" stroke-linecap="square"></path>
+            <path class="stroke-primary pc:stroke-primary-deep"
+              d="M16 17C20.1421 17 23.5 13.6421 23.5 9.5C23.5 5.35786 20.1421 2 16 2C11.8579 2 8.5 5.35786 8.5 9.5C8.5 13.6421 11.8579 17 16 17Z"
+              stroke-width="2" stroke-miterlimit="10" stroke-linecap="square"></path>
+          </svg>
+        </a>
+
+        <!-- Cart Icon with Octagon shape -->
+        <button id="cart-drawer-open" class="relative group" aria-label="Cart">
+          <div class="text-primary pc:text-primary-deep group-hover:opacity-80 transition-opacity">
+            <svg class="icon icon-cart" width="32" height="32" viewBox="0 0 32 32" fill="none"
+              xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path class="stroke-primary pc:stroke-primary-deep"
+                d="M5.45011 5.45011L16 1.08232L26.5499 5.45011L30.9177 16L26.5499 26.5499L16 30.9177L5.45011 26.5499L1.08232 16L5.45011 5.45011Z"
+                stroke-width="2"></path>
+            </svg>
+            <span
+              class="absolute inset-0 flex items-center justify-center text-[12px] font-bold  -mt-[2px] leading-[135%] pc:text-primary-deep font-aeonik">1</span>
+          </div>
+        </button>
+      </div>
+
+    </nav>
   </header>
+
+  <!-- Mobile Menu Sidebar -->
+  <div id="mobile-menu-overlay"
+    class="fixed inset-0 bg-black/50 z-40 opacity-0 invisible transition-all duration-300 pc:hidden">
+  </div>
+
+  <aside id="mobile-menu-sidebar"
+    class="fixed top-0 left-0 w-full bg-white z-[90] -translate-x-full tablet:px-0 tablet:w-[370px] pc:px-[30px] pc:translate-x-0 pc:opacity-0 pc:invisible pc:-translate-y-4 transition-all duration-300 ease-out overflow-y-auto overflow-x-hidden pc:max-w-[370px] pc:shadow-xl "
+    style="margin-top: 111px; height: calc(100dvh - 111px);">
+    <!-- Menu Content -->
+    <nav class="flex flex-col p-5 gap-4 pc:px-0 pc:py-[12px]">
+      <ul>
+        <li class="mt-[14px] mb-[11px] ">
+          <a href="#"
+            class="flex items-end gap-[16px] py-2 px-4 h-[54px] rounded-[12px] bg-[linear-gradient(109deg,#e3c4ac,#e8ad96_80%,#ee957f)]">
+            <div
+              class="w-full h-full flex items-center justify-center font-abc-arizona text-[16px] pc:text-[12px] font-normal bg-primary-deep py-[10px] px-[2px] rounded-[8px] leading-normal tracking-[-0.8px] text-white text-center no-underline">
+              IM8:
+              The New Gold Standard
+            </div>
+            <div class="flex items-center justify-between gap-x-2 max-h-[56px]">
+              <div class="flex flex-col gap-2 items-center">
+                <picture>
+                  <source srcset="//im8health.com/cdn/shop/files/accelerated_btn_im8.webp?v=1752050274&amp;width=62"
+                    type="image/png">
+                  <img src="//im8health.com/cdn/shop/files/accelerated_btn_im8.webp?v=1752050274&amp;width=62"
+                    alt="Green Powders" class="w-[31px] h-auto">
+                </picture>
+                <svg xmlns="http://www.w3.org/2000/svg" width="31" height="8" viewBox="0 0 31 8" fill="none">
+                  <g clip-path="url(#clip0_2633_38385)">
+                    <path
+                      d="M26.7773 7.98239C26.2203 7.98239 25.7312 7.89122 25.301 7.71181C24.8796 7.52357 24.5525 7.25887 24.3197 6.92063C24.0869 6.58239 23.972 6.18828 23.972 5.74416C23.972 5.30004 24.1252 4.87945 24.4346 4.53534C24.7499 4.18828 25.189 3.9471 25.7518 3.81181V3.76769C25.2774 3.62357 24.912 3.40298 24.6468 3.10004C24.3904 2.7971 24.2637 2.43534 24.2637 2.01475C24.2637 1.59416 24.3639 1.33239 24.5672 1.02945C24.7705 0.72063 25.0623 0.476512 25.4453 0.294159C25.8284 0.111806 26.2704 0.0235711 26.7743 0.0235711C27.2782 0.0235711 27.7173 0.114748 28.0915 0.294159C28.4746 0.476512 28.7663 0.72063 28.9697 1.02945C29.173 1.33239 29.2732 1.65887 29.2732 2.01475C29.2732 2.37063 29.1406 2.80887 28.8783 3.11181C28.622 3.41475 28.2595 3.63239 27.7851 3.76769V3.81181C28.3568 3.9471 28.7958 4.18828 29.1023 4.53534C29.4176 4.88239 29.5767 5.28534 29.5767 5.74416C29.5767 6.20298 29.4618 6.58239 29.229 6.92063C28.9962 7.25887 28.6662 7.52357 28.2389 7.71181C27.8175 7.89416 27.3313 7.98239 26.7743 7.98239H26.7773ZM26.7773 7.21181C27.1073 7.21181 27.3961 7.1471 27.6436 7.02063C27.9 6.89122 28.0945 6.71475 28.23 6.48828C28.3715 6.26181 28.4452 6.00592 28.4452 5.72063C28.4452 5.26769 28.2919 4.90298 27.9825 4.62357C27.676 4.33828 27.2723 4.19416 26.7773 4.19416C26.2822 4.19416 26.1555 4.25887 25.8991 4.38534C25.6516 4.51475 25.4571 4.69416 25.3127 4.92945C25.1772 5.15592 25.1094 5.42063 25.1094 5.72063C25.1094 6.15887 25.2626 6.51475 25.5721 6.79416C25.8785 7.07357 26.2822 7.21181 26.7773 7.21181ZM26.7773 3.43534C27.0543 3.43534 27.2959 3.37945 27.4992 3.26475C27.7085 3.15298 27.8705 2.99416 27.9825 2.79122C28.0945 2.58828 28.1505 2.35298 28.1505 2.09122C28.1505 1.69122 28.0267 1.37357 27.7792 1.14122C27.5317 0.908865 27.1987 0.791218 26.7773 0.791218C26.3559 0.791218 26.2557 0.844159 26.0465 0.950042C25.8432 1.05592 25.687 1.20592 25.5721 1.40298C25.4601 1.60004 25.4041 1.82945 25.4041 2.09416C25.4041 2.49416 25.5279 2.81769 25.7754 3.06769C26.0229 3.31769 26.3559 3.44122 26.7773 3.44122V3.43534ZM0 7.89416C0.135551 7.6971 0.229848 7.47651 0.28289 7.22651C0.335932 6.97063 0.362452 6.62651 0.362452 6.1971V1.82357C0.362452 1.39416 0.335932 1.05004 0.28289 0.794159C0.229848 0.535336 0.135551 0.314748 0 0.126512V0.0823946H1.82405V0.126512C1.6885 0.314748 1.5942 0.538277 1.54116 0.794159C1.48812 1.05004 1.4616 1.39416 1.4616 1.82357V6.20004C1.4616 6.62945 1.48812 6.97357 1.54116 7.22945C1.5942 7.47945 1.6885 7.70004 1.82405 7.8971V7.94122H0V7.8971V7.89416ZM9.64772 1.30298V6.18828C9.64772 6.61769 9.67424 6.96475 9.72728 7.22945C9.78032 7.48534 9.87462 7.70886 10.0102 7.8971V7.94122H8.43365V7.8971C8.5751 7.70886 8.66939 7.48534 8.71654 7.22945C8.76958 6.97357 8.7961 6.62651 8.7961 6.18828V1.81181C8.7961 1.38239 8.76958 1.03828 8.71654 0.782395C8.67234 0.526512 8.57804 0.308865 8.43365 0.126512V0.0823946H10.3491L12.9628 6.57357H13.007L15.5737 0.0794534H17.4213V0.123571C17.2857 0.305924 17.1914 0.526512 17.1384 0.791218C17.0942 1.0471 17.0706 1.38828 17.0706 1.80887V6.18534C17.0706 6.62357 17.0942 6.97063 17.1384 7.22651C17.1914 7.48239 17.2857 7.70592 17.4213 7.89416V7.93828H15.609V7.89416C15.7505 7.70592 15.8448 7.48239 15.8919 7.22651C15.945 6.97063 15.9715 6.62357 15.9715 6.18534V1.31181H15.9155L13.3135 7.93828H12.3794L9.7096 1.30004H9.65361L9.64772 1.30298ZM5.57823 3.53828L5.11559 3.3471L4.65295 3.53828L4.46141 4.00004L4.65295 4.46181L5.11559 4.65298L5.57823 4.46181L5.76977 4.00004L5.57823 3.53828ZM21.2138 3.53828L20.7511 3.3471L20.2885 3.53828L20.097 4.00004L20.2885 4.46181L20.7511 4.65298L21.2138 4.46181L21.4053 4.00004L21.2138 3.53828ZM29.9952 0.105924C29.892 0.161806 29.8125 0.244159 29.7565 0.344159C29.7005 0.4471 29.671 0.558865 29.671 0.679453C29.671 0.800042 29.7005 0.911806 29.7565 1.01181C29.8154 1.11181 29.895 1.18828 29.9952 1.24416C30.0983 1.30004 30.2103 1.32945 30.334 1.32945C30.4578 1.32945 30.5698 1.30004 30.6729 1.24416C30.776 1.18828 30.8556 1.11181 30.9116 1.01181C30.9676 0.911806 31 0.802983 31 0.676512C31 0.550042 30.9676 0.444159 30.9116 0.341218C30.8527 0.241218 30.7731 0.161806 30.6729 0.105924C30.5698 0.0500416 30.4578 0.0206299 30.334 0.0206299C30.2103 0.0206299 30.0983 0.0500416 29.9952 0.105924ZM30.6022 0.217689C30.6817 0.261806 30.7466 0.326512 30.7908 0.405924C30.835 0.488277 30.8586 0.576512 30.8586 0.676512C30.8586 0.776512 30.835 0.867689 30.7908 0.9471C30.7466 1.02651 30.6817 1.09122 30.6022 1.13534C30.5226 1.17945 30.4342 1.20298 30.334 1.20298C30.2338 1.20298 30.1454 1.17945 30.0659 1.13534C29.9863 1.09122 29.9244 1.02945 29.8802 0.950042C29.836 0.87063 29.8125 0.782395 29.8125 0.679453C29.8125 0.576512 29.836 0.488277 29.8802 0.405924C29.9244 0.326512 29.9863 0.261806 30.0659 0.217689C30.1454 0.173571 30.2338 0.1471 30.334 0.1471C30.4342 0.1471 30.5226 0.173571 30.6022 0.217689ZM30.5668 0.376512C30.5167 0.335336 30.446 0.311806 30.3635 0.311806H30.0865V1.03828H30.2279V0.779453H30.3399L30.4932 1.03828H30.6493L30.4755 0.752983C30.5256 0.741218 30.5668 0.714747 30.5992 0.676512C30.6287 0.641218 30.6434 0.5971 30.6434 0.544159C30.6434 0.491218 30.6169 0.423571 30.5668 0.379453V0.376512ZM30.3547 0.661806H30.225V0.429453H30.3547C30.3959 0.429453 30.4313 0.438277 30.4578 0.458865C30.4843 0.476512 30.4961 0.505924 30.4961 0.541218C30.4961 0.576512 30.4814 0.611806 30.4548 0.629453C30.4283 0.652983 30.393 0.661806 30.3547 0.661806Z"
+                      fill="#A40011"></path>
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_2633_38385">
+                      <rect width="31" height="8" fill="white"></rect>
+                    </clipPath>
+                  </defs>
+                </svg>
+
+              </div>
+              <span
+                class="rounded-full bg-primary-deep inline-flex h-[18px] w-[18px] justify-center items-center shrink-0 text-white text-center font-aeonik text-[8px] font-normal leading-normal tracking-[-0.8px]">VS.</span>
+              <div class="flex flex-col gap-2 items-center">
+                <picture>
+                  <source srcset="//im8health.com/cdn/shop/files/accelerated_btn_greens.webp?v=1752050270&amp;width=62"
+                    type="image/png">
+                  <img src="//im8health.com/cdn/shop/files/accelerated_btn_greens.webp?v=1752050270&amp;width=62"
+                    alt="IM8" class="w-[31px] h-auto">
+                </picture>
+                <span
+                  class="text-[#204438] text-center font-abc-arizona text-[8px] font-bold leading-[8px] h-[8px] -translate-y-1/2">Green<br>Powders</span>
+              </div>
+            </div>
+          </a>
+        </li>
+        <li class="py-[6px]">
+          <a href="#">
+            <img src="https://im8health.com/cdn/shop/files/DUE-thumb.png?v=1762223928&width=600"
+              class="w-full h-auto rounded-[12px]" alt="">
+          </a>
+        </li>
+        <li class="py-[6px]">
+          <a href="#">
+            <img src="https://im8health.com/cdn/shop/files/DUL-thumb.png?v=1762223929&width=600"
+              class="w-full h-auto rounded-[12px]" alt="">
+          </a>
+        </li>
+        <li class="py-[6px]">
+          <a href="#">
+            <img
+              src="https://im8health.com/cdn/shop/files/navbar_bstack_50dfae75-582e-400b-bce4-77aa74faa198.png?v=1762223932&width=600"
+              class="w-full h-auto rounded-[12px]" alt="">
+          </a>
+        </li>
+        <li class="py-[6px]">
+          <a href="#">
+            <img src="https://im8health.com/cdn/shop/files/nav_wallofhealth.png?v=1736149918&width=600"
+              class="w-full h-auto rounded-[12px]" alt="">
+          </a>
+        </li>
+        <li class="py-[6px]">
+          <a href="#">
+            <img src="https://im8health.com/cdn/shop/files/nav-d-merch-04.png?v=1732028322&width=600"
+              class="w-full h-auto rounded-[12px]" alt="">
+          </a>
+        </li>
+        <li class="py-[6px]">
+          <a href="#">
+            <img
+              src="https://im8health.com/cdn/shop/files/nav-d-all-05_fab95fb1-4357-4180-8f66-e5a20b4d8b4f.png?v=1762223931&width=600"
+              class="w-full h-auto rounded-[12px]" alt="">
+          </a>
+        </li>
+        <li class="py-[6px] pc:hidden">
+          <a href="" class="sidebar-nav-link">
+            Welcome from David
+          </a>
+        </li>
+        <li class="py-[6px] pc:hidden">
+          <a href="" class="sidebar-nav-link">
+            About Us
+          </a>
+        </li>
+        <li class="py-[6px] pc:hidden">
+          <a href="" class="sidebar-nav-link">
+            Science
+          </a>
+        </li>
+        <li class="py-[6px] pc:hidden">
+          <a href="" class="sidebar-nav-link">
+            Ingredients
+          </a>
+        </li>
+        <li class="py-[6px] pc:hidden">
+          <a href="" class="sidebar-nav-link">
+            Quality and Standards
+          </a>
+        </li>
+        <li class="py-[6px] pc:hidden">
+          <a href="" class="sidebar-nav-link">
+            IM8 Inner Circle
+          </a>
+        </li>
+        <li class="py-[6px] pc:hidden">
+          <a href="" class="sidebar-nav-link">
+            FAQs
+          </a>
+        </li>
+        <li class="py-[6px] pc:hidden">
+          <a href="" class="sidebar-nav-link">
+            The Healthspan Blog
+          </a>
+        </li>
+        <li class="py-[6px] pc:hidden">
+          <h2 class="sr-only">Country/region</h2>
+          <button id="currency-selector-open"
+            class="flex items-end w-full h-auto hover:underline text-primary-deep font-aeonik text-[14px] font-bold gap-1 underline-offset-3 leading-[calc(1+.3/1)]">
+            <span id="currency-code">USD</span>
+            <svg width="12" height="13" class="icon icon-caret" viewBox="0 0 12 13" fill="none"
+              xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M9 4.8125L5.625 8.1875L2.25 4.8125" stroke="currentColor" stroke-width="2"
+                stroke-linecap="square">
+              </path>
+            </svg>
+          </button>
+        </li>
+      </ul>
+    </nav>
+  </aside>
 
   <!-- Hero Section / Product Detail -->
   <section id="hero">
@@ -132,6 +710,558 @@
     <!-- Newsletter signup -->
     <!-- Social media icons -->
   </footer>
+
+  <!-- Country/Region Selector Modal -->
+  <div id="country-modal-overlay" class="fixed inset-0 z-[100] transition-opacity duration-300 opacity-0 invisible">
+  </div>
+  <aside id="country-modal"
+    class="fixed bottom-0 left-0 w-full h-[639px] bg-white z-[101] translate-y-full transition-transform duration-500 ease-out flex flex-col shadow-2xl overflow-hidden pb-[60px]">
+    <!-- Header -->
+    <div class="p-[15px_20px_5px_15px] flex items-center justify-between border-b border-gray-border/50">
+      <div class="search-container">
+        <input type="text" id="country-search" placeholder="SEARCH" class="search-input">
+        <label for="country-search" class="search-label">SEARCH</label>
+        <svg
+          class="search-icon absolute right-4 top-1/2 -translate-y-1/2 text-[#50000bbf] transition-opacity duration-200"
+          width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="9" cy="9" r="6" stroke="currentColor" stroke-width="2" />
+          <path d="M14 14L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+        </svg>
+      </div>
+      <button id="country-modal-close" class="ml-4 text-[#50000bbf] hover:opacity-70 transition-opacity">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="square" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Scrollable Country List -->
+    <div id="country-list" class="flex-1 overflow-y-auto pt-[6px] custom-scrollbar">
+      <!-- Mapped Countries from Reference -->
+      <button class="country-item country-item-btn" data-country="AUSTRALIA" data-currency="AUD $">
+        <div class="flex items-center">
+          <span class="country-checkmark">
+            <svg class="icon icon-checkmark" width="12" height="9" viewBox="0 0 12 9" fill="none"
+              xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M11.35.643a.5.5 0 01.006.707l-6.77 6.886a.5.5 0 01-.719-.006L.638 4.845a.5.5 0 11.724-.69l2.872 3.011 6.41-6.517a.5.5 0 01.707-.006h-.001z"
+                fill="currentColor"></path>
+            </svg>
+          </span>
+          <span>AUSTRALIA</span>
+        </div>
+        <span class="text-[14px]">AUD $</span>
+      </button>
+      <button class="country-item country-item-btn" data-country="BELGIUM" data-currency="EUR €">
+        <div class="flex items-center">
+          <span class="country-checkmark">
+            <svg class="icon icon-checkmark" width="12" height="9" viewBox="0 0 12 9" fill="none"
+              xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M11.35.643a.5.5 0 01.006.707l-6.77 6.886a.5.5 0 01-.719-.006L.638 4.845a.5.5 0 11.724-.69l2.872 3.011 6.41-6.517a.5.5 0 01.707-.006h-.001z"
+                fill="currentColor"></path>
+            </svg>
+          </span>
+          <span>BELGIUM</span>
+        </div>
+        <span class="text-[14px]">EUR €</span>
+      </button>
+      <button class="country-item country-item-btn" data-country="CANADA" data-currency="CAD $">
+        <div class="flex items-center">
+          <span class="country-checkmark">
+            <svg class="icon icon-checkmark" width="12" height="9" viewBox="0 0 12 9" fill="none"
+              xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M11.35.643a.5.5 0 01.006.707l-6.77 6.886a.5.5 0 01-.719-.006L.638 4.845a.5.5 0 11.724-.69l2.872 3.011 6.41-6.517a.5.5 0 01.707-.006h-.001z"
+                fill="currentColor"></path>
+            </svg>
+          </span>
+          <span>CANADA</span>
+        </div>
+        <span class="text-[14px]">CAD $</span>
+      </button>
+      <button class="country-item country-item-btn" data-country="FRANCE" data-currency="EUR €">
+        <div class="flex items-center">
+          <span class="country-checkmark">
+            <svg class="icon icon-checkmark" width="12" height="9" viewBox="0 0 12 9" fill="none"
+              xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M11.35.643a.5.5 0 01.006.707l-6.77 6.886a.5.5 0 01-.719-.006L.638 4.845a.5.5 0 11.724-.69l2.872 3.011 6.41-6.517a.5.5 0 01.707-.006h-.001z"
+                fill="currentColor"></path>
+            </svg>
+          </span>
+          <span>FRANCE</span>
+        </div>
+        <span class="text-[14px]">EUR €</span>
+      </button>
+      <button class="country-item country-item-btn" data-country="GERMANY" data-currency="EUR €">
+        <div class="flex items-center">
+          <span class="country-checkmark">
+            <svg class="icon icon-checkmark" width="12" height="9" viewBox="0 0 12 9" fill="none"
+              xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M11.35.643a.5.5 0 01.006.707l-6.77 6.886a.5.5 0 01-.719-.006L.638 4.845a.5.5 0 11.724-.69l2.872 3.011 6.41-6.517a.5.5 0 01.707-.006h-.001z"
+                fill="currentColor"></path>
+            </svg>
+          </span>
+          <span>GERMANY</span>
+        </div>
+        <span class="text-[14px]">EUR €</span>
+      </button>
+      <button class="country-item country-item-btn" data-country="HONG KONG SAR" data-currency="HKD $">
+        <div class="flex items-center">
+          <span class="country-checkmark">
+            <svg class="icon icon-checkmark" width="12" height="9" viewBox="0 0 12 9" fill="none"
+              xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M11.35.643a.5.5 0 01.006.707l-6.77 6.886a.5.5 0 01-.719-.006L.638 4.845a.5.5 0 11.724-.69l2.872 3.011 6.41-6.517a.5.5 0 01.707-.006h-.001z"
+                fill="currentColor"></path>
+            </svg>
+          </span>
+          <span>HONG KONG SAR</span>
+        </div>
+        <span class="text-[14px]">HKD $</span>
+      </button>
+      <button class="country-item country-item-btn" data-country="HUNGARY" data-currency="HUF FT">
+        <div class="flex items-center">
+          <span class="country-checkmark">
+            <svg class="icon icon-checkmark" width="12" height="9" viewBox="0 0 12 9" fill="none"
+              xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M11.35.643a.5.5 0 01.006.707l-6.77 6.886a.5.5 0 01-.719-.006L.638 4.845a.5.5 0 11.724-.69l2.872 3.011 6.41-6.517a.5.5 0 01.707-.006h-.001z"
+                fill="currentColor"></path>
+            </svg>
+          </span>
+          <span>HUNGARY</span>
+        </div>
+        <span class="text-[14px]">HUF FT</span>
+      </button>
+      <button class="country-item country-item-btn" data-country="INDONESIA" data-currency="IDR RP">
+        <div class="flex items-center">
+          <span class="country-checkmark">
+            <svg class="icon icon-checkmark" width="12" height="9" viewBox="0 0 12 9" fill="none"
+              xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M11.35.643a.5.5 0 01.006.707l-6.77 6.886a.5.5 0 01-.719-.006L.638 4.845a.5.5 0 11.724-.69l2.872 3.011 6.41-6.517a.5.5 0 01.707-.006h-.001z"
+                fill="currentColor"></path>
+            </svg>
+          </span>
+          <span>INDONESIA</span>
+        </div>
+        <span class="text-[14px]">IDR RP</span>
+      </button>
+      <button class="country-item country-item-btn" data-country="ISRAEL" data-currency="ILS ₪">
+        <div class="flex items-center">
+          <span class="country-checkmark">
+            <svg class="icon icon-checkmark" width="12" height="9" viewBox="0 0 12 9" fill="none"
+              xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M11.35.643a.5.5 0 01.006.707l-6.77 6.886a.5.5 0 01-.719-.006L.638 4.845a.5.5 0 11.724-.69l2.872 3.011 6.41-6.517a.5.5 0 01.707-.006h-.001z"
+                fill="currentColor"></path>
+            </svg>
+          </span>
+          <span>ISRAEL</span>
+        </div>
+        <span class="text-[14px]">ILS ₪</span>
+      </button>
+      <button class="country-item country-item-btn" data-country="ITALY" data-currency="EUR €">
+        <div class="flex items-center">
+          <span class="country-checkmark">
+            <svg class="icon icon-checkmark" width="12" height="9" viewBox="0 0 12 9" fill="none"
+              xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M11.35.643a.5.5 0 01.006.707l-6.77 6.886a.5.5 0 01-.719-.006L.638 4.845a.5.5 0 11.724-.69l2.872 3.011 6.41-6.517a.5.5 0 01.707-.006h-.001z"
+                fill="currentColor"></path>
+            </svg>
+          </span>
+          <span>ITALY</span>
+        </div>
+        <span class="text-[14px]">EUR €</span>
+      </button>
+      <button class="country-item country-item-btn" data-country="JAPAN" data-currency="JPY ¥">
+        <div class="flex items-center">
+          <span class="country-checkmark">
+            <svg class="icon icon-checkmark" width="12" height="9" viewBox="0 0 12 9" fill="none"
+              xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M11.35.643a.5.5 0 01.006.707l-6.77 6.886a.5.5 0 01-.719-.006L.638 4.845a.5.5 0 11.724-.69l2.872 3.011 6.41-6.517a.5.5 0 01.707-.006h-.001z"
+                fill="currentColor"></path>
+            </svg>
+          </span>
+          <span>JAPAN</span>
+        </div>
+        <span class="text-[14px]">JPY ¥</span>
+      </button>
+      <button class="country-item country-item-btn" data-country="LITHUANIA" data-currency="EUR €">
+        <div class="flex items-center">
+          <span class="country-checkmark">
+            <svg class="icon icon-checkmark" width="12" height="9" viewBox="0 0 12 9" fill="none"
+              xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M11.35.643a.5.5 0 01.006.707l-6.77 6.886a.5.5 0 01-.719-.006L.638 4.845a.5.5 0 11.724-.69l2.872 3.011 6.41-6.517a.5.5 0 01.707-.006h-.001z"
+                fill="currentColor"></path>
+            </svg>
+          </span>
+          <span>LITHUANIA</span>
+        </div>
+        <span class="text-[14px]">EUR €</span>
+      </button>
+      <button class="country-item country-item-btn" data-country="MALAYSIA" data-currency="MYR RM">
+        <div class="flex items-center">
+          <span class="country-checkmark">
+            <svg class="icon icon-checkmark" width="12" height="9" viewBox="0 0 12 9" fill="none"
+              xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M11.35.643a.5.5 0 01.006.707l-6.77 6.886a.5.5 0 01-.719-.006L.638 4.845a.5.5 0 11.724-.69l2.872 3.011 6.41-6.517a.5.5 0 01.707-.006h-.001z"
+                fill="currentColor"></path>
+            </svg>
+          </span>
+          <span>MALAYSIA</span>
+        </div>
+        <span class="text-[14px]">MYR RM</span>
+      </button>
+      <button class="country-item country-item-btn" data-country="NETHERLANDS" data-currency="EUR €">
+        <div class="flex items-center">
+          <span class="country-checkmark">
+            <svg class="icon icon-checkmark" width="12" height="9" viewBox="0 0 12 9" fill="none"
+              xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M11.35.643a.5.5 0 01.006.707l-6.77 6.886a.5.5 0 01-.719-.006L.638 4.845a.5.5 0 11.724-.69l2.872 3.011 6.41-6.517a.5.5 0 01.707-.006h-.001z"
+                fill="currentColor"></path>
+            </svg>
+          </span>
+          <span>NETHERLANDS</span>
+        </div>
+        <span class="text-[14px]">EUR €</span>
+      </button>
+      <button class="country-item country-item-btn" data-country="NEW ZEALAND" data-currency="NZD $">
+        <div class="flex items-center">
+          <span class="country-checkmark">
+            <svg class="icon icon-checkmark" width="12" height="9" viewBox="0 0 12 9" fill="none"
+              xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M11.35.643a.5.5 0 01.006.707l-6.77 6.886a.5.5 0 01-.719-.006L.638 4.845a.5.5 0 11.724-.69l2.872 3.011 6.41-6.517a.5.5 0 01.707-.006h-.001z"
+                fill="currentColor"></path>
+            </svg>
+          </span>
+          <span>NEW ZEALAND</span>
+        </div>
+        <span class="text-[14px]">NZD $</span>
+      </button>
+      <button class="country-item country-item-btn" data-country="PHILIPPINES" data-currency="PHP ₱">
+        <div class="flex items-center">
+          <span class="country-checkmark">
+            <svg class="icon icon-checkmark" width="12" height="9" viewBox="0 0 12 9" fill="none"
+              xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M11.35.643a.5.5 0 01.006.707l-6.77 6.886a.5.5 0 01-.719-.006L.638 4.845a.5.5 0 11.724-.69l2.872 3.011 6.41-6.517a.5.5 0 01.707-.006h-.001z"
+                fill="currentColor"></path>
+            </svg>
+          </span>
+          <span>PHILIPPINES</span>
+        </div>
+        <span class="text-[14px]">PHP ₱</span>
+      </button>
+      <button class="country-item country-item-btn" data-country="POLAND" data-currency="PLN zł">
+        <div class="flex items-center">
+          <span class="country-checkmark">
+            <svg class="icon icon-checkmark" width="12" height="9" viewBox="0 0 12 9" fill="none"
+              xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M11.35.643a.5.5 0 01.006.707l-6.77 6.886a.5.5 0 01-.719-.006L.638 4.845a.5.5 0 11.724-.69l2.872 3.011 6.41-6.517a.5.5 0 01.707-.006h-.001z"
+                fill="currentColor"></path>
+            </svg>
+          </span>
+          <span>POLAND</span>
+        </div>
+        <span class="text-[14px]">PLN zł</span>
+      </button>
+      <button class="country-item country-item-btn" data-country="ROMANIA" data-currency="RON Lei">
+        <div class="flex items-center">
+          <span class="country-checkmark">
+            <svg class="icon icon-checkmark" width="12" height="9" viewBox="0 0 12 9" fill="none"
+              xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M11.35.643a.5.5 0 01.006.707l-6.77 6.886a.5.5 0 01-.719-.006L.638 4.845a.5.5 0 11.724-.69l2.872 3.011 6.41-6.517a.5.5 0 01.707-.006h-.001z"
+                fill="currentColor"></path>
+            </svg>
+          </span>
+          <span>ROMANIA</span>
+        </div>
+        <span class="text-[14px]">RON Lei</span>
+      </button>
+      <button class="country-item country-item-btn" data-country="SAUDI ARABIA" data-currency="SAR ر.س">
+        <div class="flex items-center">
+          <span class="country-checkmark">
+            <svg class="icon icon-checkmark" width="12" height="9" viewBox="0 0 12 9" fill="none"
+              xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M11.35.643a.5.5 0 01.006.707l-6.77 6.886a.5.5 0 01-.719-.006L.638 4.845a.5.5 0 11.724-.69l2.872 3.011 6.41-6.517a.5.5 0 01.707-.006h-.001z"
+                fill="currentColor"></path>
+            </svg>
+          </span>
+          <span>SAUDI ARABIA</span>
+        </div>
+        <span class="text-[14px]">SAR ر.س</span>
+      </button>
+      <button class="country-item country-item-btn" data-country="SINGAPORE" data-currency="SGD $">
+        <div class="flex items-center">
+          <span class="country-checkmark">
+            <svg class="icon icon-checkmark" width="12" height="9" viewBox="0 0 12 9" fill="none"
+              xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M11.35.643a.5.5 0 01.006.707l-6.77 6.886a.5.5 0 01-.719-.006L.638 4.845a.5.5 0 11.724-.69l2.872 3.011 6.41-6.517a.5.5 0 01.707-.006h-.001z"
+                fill="currentColor"></path>
+            </svg>
+          </span>
+          <span>SINGAPORE</span>
+        </div>
+        <span class="text-[14px]">SGD $</span>
+      </button>
+      <button class="country-item country-item-btn" data-country="SOUTH KOREA" data-currency="KRW ₩">
+        <div class="flex items-center">
+          <span class="country-checkmark">
+            <svg class="icon icon-checkmark" width="12" height="9" viewBox="0 0 12 9" fill="none"
+              xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M11.35.643a.5.5 0 01.006.707l-6.77 6.886a.5.5 0 01-.719-.006L.638 4.845a.5.5 0 11.724-.69l2.872 3.011 6.41-6.517a.5.5 0 01.707-.006h-.001z"
+                fill="currentColor"></path>
+            </svg>
+          </span>
+          <span>SOUTH KOREA</span>
+        </div>
+        <span class="text-[14px]">KRW ₩</span>
+      </button>
+      <button class="country-item country-item-btn" data-country="SWEDEN" data-currency="SEK kr">
+        <div class="flex items-center">
+          <span class="country-checkmark">
+            <svg class="icon icon-checkmark" width="12" height="9" viewBox="0 0 12 9" fill="none"
+              xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M11.35.643a.5.5 0 01.006.707l-6.77 6.886a.5.5 0 01-.719-.006L.638 4.845a.5.5 0 11.724-.69l2.872 3.011 6.41-6.517a.5.5 0 01.707-.006h-.001z"
+                fill="currentColor"></path>
+            </svg>
+          </span>
+          <span>SWEDEN</span>
+        </div>
+        <span class="text-[14px]">SEK kr</span>
+      </button>
+      <button class="country-item country-item-btn" data-country="SWITZERLAND" data-currency="CHF CHF">
+        <div class="flex items-center">
+          <span class="country-checkmark">
+            <svg class="icon icon-checkmark" width="12" height="9" viewBox="0 0 12 9" fill="none"
+              xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M11.35.643a.5.5 0 01.006.707l-6.77 6.886a.5.5 0 01-.719-.006L.638 4.845a.5.5 0 11.724-.69l2.872 3.011 6.41-6.517a.5.5 0 01.707-.006h-.001z"
+                fill="currentColor"></path>
+            </svg>
+          </span>
+          <span>SWITZERLAND</span>
+        </div>
+        <span class="text-[14px]">CHF CHF</span>
+      </button>
+      <button class="country-item country-item-btn" data-country="TAIWAN" data-currency="TWD $">
+        <div class="flex items-center">
+          <span class="country-checkmark">
+            <svg class="icon icon-checkmark" width="12" height="9" viewBox="0 0 12 9" fill="none"
+              xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M11.35.643a.5.5 0 01.006.707l-6.77 6.886a.5.5 0 01-.719-.006L.638 4.845a.5.5 0 11.724-.69l2.872 3.011 6.41-6.517a.5.5 0 01.707-.006h-.001z"
+                fill="currentColor"></path>
+            </svg>
+          </span>
+          <span>TAIWAN</span>
+        </div>
+        <span class="text-[14px]">TWD $</span>
+      </button>
+      <button class="country-item country-item-btn" data-country="UNITED ARAB EMIRATES" data-currency="AED د.إ">
+        <div class="flex items-center">
+          <span class="country-checkmark">
+            <svg class="icon icon-checkmark" width="12" height="9" viewBox="0 0 12 9" fill="none"
+              xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M11.35.643a.5.5 0 01.006.707l-6.77 6.886a.5.5 0 01-.719-.006L.638 4.845a.5.5 0 11.724-.69l2.872 3.011 6.41-6.517a.5.5 0 01.707-.006h-.001z"
+                fill="currentColor"></path>
+            </svg>
+          </span>
+          <span>UNITED ARAB EMIRATES</span>
+        </div>
+        <span class="text-[14px]">AED د.إ</span>
+      </button>
+      <button class="country-item country-item-btn" data-country="UNITED KINGDOM" data-currency="GBP £">
+        <div class="flex items-center">
+          <span class="country-checkmark">
+            <svg class="icon icon-checkmark" width="12" height="9" viewBox="0 0 12 9" fill="none"
+              xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M11.35.643a.5.5 0 01.006.707l-6.77 6.886a.5.5 0 01-.719-.006L.638 4.845a.5.5 0 11.724-.69l2.872 3.011 6.41-6.517a.5.5 0 01.707-.006h-.001z"
+                fill="currentColor"></path>
+            </svg>
+          </span>
+          <span>UNITED KINGDOM</span>
+        </div>
+        <span class="text-[14px]">GBP £</span>
+      </button>
+      <button class="country-item country-item-btn active" data-country="UNITED STATES" data-currency="USD $">
+        <div class="flex items-center">
+          <span class="country-checkmark">
+            <svg class="icon icon-checkmark" width="12" height="9" viewBox="0 0 12 9" fill="none"
+              xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M11.35.643a.5.5 0 01.006.707l-6.77 6.886a.5.5 0 01-.719-.006L.638 4.845a.5.5 0 11.724-.69l2.872 3.011 6.41-6.517a.5.5 0 01.707-.006h-.001z"
+                fill="currentColor"></path>
+            </svg>
+          </span>
+          <span>UNITED STATES</span>
+        </div>
+        <span class="text-[14px]">USD $</span>
+      </button>
+    </div>
+  </aside>
+
+  <!-- Cart Drawer Overlay -->
+  <div id="cart-drawer-overlay"
+    class="fixed inset-0 z-[100] transition-all duration-[250ms] ease-out opacity-0 invisible cart-drawer-overlay">
+  </div>
+
+  <!-- Cart Drawer -->
+  <aside id="cart-drawer"
+    class="fixed top-0 right-0 w-full h-full bg-white z-[101] translate-x-full transition-transform duration-500 ease-out flex flex-col shadow-2xl overflow-hidden tablet:max-w-[432px] tablet:min-w-[432px] tablet:top-6 tablet:right-6 tablet:bottom-6 tablet:h-auto tablet:rounded-2xl tablet:translate-x-[calc(100%+24px)]">
+    <!-- Header -->
+    <div class="px-5 py-3 flex items-center justify-between border-b h-[57px] border-b-[#E5D5CF]">
+      <div class="flex items-center gap-3">
+        <div class="drawer-count flex items-center justify-center relative">
+          <svg class="icon icon-cart" width="32" height="32" viewBox="0 0 32 32" fill="none"
+            xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M5.45011 5.45011L16 1.08232L26.5499 5.45011L30.9177 16L26.5499 26.5499L16 30.9177L5.45011 26.5499L1.08232 16L5.45011 5.45011Z"
+              stroke="#50000B" stroke-width="2"></path>
+          </svg>
+          <span
+            class="absolute inset-0 flex items-center justify-center text-[12px] leading-[16.2px] font-bold font-aeonik">1</span>
+        </div>
+      </div>
+      <h2
+        class="text-[24px] flex-1 text-center font-medium font-abc-arizona  uppercase tracking-tight text-primary-deep">
+        Your
+        Cart</h2>
+      <button id="cart-drawer-close" class="text-primary-deep">
+        <svg class="w-[32px] h-auto" width="32" height="32" viewBox="0 0 32 32" fill="none"
+          xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <g clip-path="url(#clip0_1024_4673)">
+            <path d="M25.4282 6.57227L6.57204 25.4284" stroke="#50000B" stroke-width="2" stroke-linecap="square"
+              stroke-linejoin="round"></path>
+            <path d="M25.428 25.4284L6.57178 6.57227" stroke="#50000B" stroke-width="2" stroke-linecap="square"
+              stroke-linejoin="round"></path>
+          </g>
+          <defs>
+            <clipPath id="clip0_1024_4673">
+              <rect width="32" height="32" fill="white"></rect>
+            </clipPath>
+          </defs>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Progress Bar Section -->
+    <div class="p-5 bg-white">
+      <p class="text-[12px] text-center font-bold font-aeonik mb-[15px]">You are $8 away from free shipping</p>
+      <div class="w-full h-1 bg-gray-100 rounded-full overflow-hidden">
+        <div class="w-[93.3333%] h-full bg-[linear-gradient(90deg,#a40011,#d50024,#a40011)]"></div>
+      </div>
+    </div>
+
+    <!-- Scrollable Content -->
+    <div class="flex-1 overflow-y-auto pb-6 space-y-8 custom-scrollbar">
+      <!-- Cart Item -->
+      <div class="flex gap-4  px-5">
+        <div class="w-[162px] h-[125px] bg-cream rounded-[12px] overflow-hidden shrink-0">
+          <img src="https://im8health.com/cdn/shop/files/pdp_essentials-sachet_carousel01.jpg?v=1761040602&width=300"
+            class="w-full h-full object-contain" alt="Product">
+        </div>
+        <div class="flex-1 flex flex-col">
+          <div class="flex justify-between items-start mb-1">
+            <h3 class="text-[20px] font-medium font-abc-arizona leading-tight text-primary-deep ">Daily
+              Ultimate
+              Essentials: All-in-One Supplement</h3>
+            <span class="text-[14px] font-medium font-aeonik text-primary-deep ml-2">$112</span>
+          </div>
+          <p class="text-[14px] font-aeonik mb-1">Format: Single-Serve Sachets</p>
+          <p class="text-[14px] font-aeonik mb-4">Plan: One Time Purchase</p>
+
+          <div class="flex items-center justify-between mt-auto">
+            <div class="flex items-center border border-primary-deep rounded-full h-[42px] px-4 max-w-[184px] w-full">
+              <button id="qty-minus" class="text-primary-deep hover:opacity-70 transition-opacity p-2 -ml-2">
+                <svg class="w-[16px] h-auto" width="16" height="16" viewBox="0 0 16 16" fill="none"
+                  xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <path d="M12.9497 7.50004H3.05025" stroke="#50000B" stroke-width="2" stroke-linecap="square"></path>
+                </svg>
+              </button>
+              <span id="qty-value"
+                class="flex-1 text-center text-[16px] text-primary-deep font-bold font-aeonik">1</span>
+              <button id="qty-plus" class="text-primary-deep hover:opacity-70 transition-opacity p-2 -mr-2">
+                <svg class="w-[16px] h-auto" width="16" height="16" viewBox="0 0 16 16" fill="none"
+                  xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <path d="M12.9497 7.50004H3.05025" stroke="#50000B" stroke-width="2" stroke-linecap="square"></path>
+                  <path d="M8 2.55029V12.4498" stroke="#50000B" stroke-width="2" stroke-linecap="square"></path>
+                </svg>
+              </button>
+            </div>
+            <button class="text-primary-deep hover:opacity-70 transition-opacity">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true">
+                <g clip-path="url(#clip0_1021_3053)">
+                  <g clip-path="url(#clip1_1021_3053)">
+                    <g clip-path="url(#clip2_1021_3053)">
+                      <path d="M3.75 8.25V21C3.75 22.242 4.758 23.25 6 23.25H18C19.242 23.25 20.25 22.242 20.25 21V8.25"
+                        stroke="#50000B" stroke-width="2" stroke-linecap="square"></path>
+                      <path d="M2.25 5.25H21.75" stroke="#50000B" stroke-width="2" stroke-linecap="square"></path>
+                      <path d="M8.25 5.25V0.75H15.75V5.25" stroke="#50000B" stroke-width="2" stroke-linecap="square">
+                      </path>
+                      <path d="M16 19.2426V10.7573" stroke="#50000B" stroke-width="2" stroke-linecap="square"></path>
+                      <path d="M12 19.2426V10.7573" stroke="#50000B" stroke-width="2" stroke-linecap="square"></path>
+                      <path d="M8 19.2426V10.7573" stroke="#50000B" stroke-width="2" stroke-linecap="square"></path>
+                    </g>
+                  </g>
+                </g>
+                <defs>
+                  <clipPath id="clip0_1021_3053">
+                    <rect width="24" height="24" fill="white"></rect>
+                  </clipPath>
+                  <clipPath id="clip1_1021_3053">
+                    <rect width="24" height="24" fill="white"></rect>
+                  </clipPath>
+                  <clipPath id="clip2_1021_3053">
+                    <rect width="24" height="24" fill="white"></rect>
+                  </clipPath>
+                </defs>
+              </svg>
+            </button>
+          </div>
+          <button
+            class="mt-2 h-[40px] w-[184px] bg-primary-deep text-white text-[14px] font-bold font-aeonik rounded-[100px] uppercase tracking-wider ">
+            Subscribe & Save
+          </button>
+        </div>
+      </div>
+
+      <!-- Marketing Banner -->
+      <div class="relative rounded-2xl overflow-hidden mt-[42px]">
+        <img src="https://cdn.shopify.com/s/files/1/0637/4460/6375/files/Group_1000005376.png?v=1764242445"
+          class="w-full max-w-[705px] block mx-auto h-auto" alt="Banner">
+
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="p-5 py-6 border-t border-t-[#0C0C0C26] bg-[#f5eaea]">
+      <button class="w-full  h-[48px] bg-[#A40011] text-white text-[16px] font-bold font-aeonik rounded-full uppercase">
+        Continue to checkout — $112
+      </button>
+      <p class="text-[12px] text-center font-normal font-aeonik mt-2">Shipping and taxes calculated at checkout
+      </p>
+    </div>
+  </aside>
 
   <script type="module" src="/src/main.js"></script>
 </body>
