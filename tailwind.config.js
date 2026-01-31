@@ -7,7 +7,9 @@ export default {
     theme: {
         extend: {
             screens: {
-                'pc': '750px',
+                'tablet': '750px',
+                'pc': '990px',
+                'wide': '1440px',
             },
             fontFamily: {
                 // Google Fonts (Available)
@@ -45,7 +47,14 @@ export default {
                 'border-gray-blue': 'rgba(62, 85, 105, 0.2)',
                 'border-red-brown': 'rgba(80, 0, 11, 0.12)',
             },
+            zIndex: {
+                '99': '99',
+                '100': '100',
+            },
         },
     },
     plugins: [],
+    corePlugins: {
+        container: false,
+    }
 }

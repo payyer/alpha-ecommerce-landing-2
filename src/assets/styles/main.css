@@ -1,8 +1,8 @@
 @import './fonts.css';
+@import "tailwindcss";
+@config "../../../tailwind.config.js";
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+
 
 @layer base {
     html {
@@ -13,10 +13,183 @@
     body {
         @apply bg-cream text-dark font-inter antialiased;
     }
+
+    button {
+        @apply cursor-pointer;
+    }
 }
 
 @layer components {
-    .container {
-        @apply mx-auto w-full max-w-[709px] px-5 pc:max-w-[1500px] pc:px-[50px];
+    .container-custom {
+        @apply mx-auto w-full px-5 wide:px-[50px] max-w-[709px] tablet:max-w-[1500px];
+    }
+
+    .nav-link {
+        @apply hidden pc:block relative font-aeonik text-[14px] font-medium leading-[22px] text-primary-deep;
+        padding: 21px clamp(8px, 1.2vw, 20px) !important;
+        font-size: clamp(13px, 1vw, 16px) !important;
+
+        span {
+            @apply relative;
+
+            &::after {
+                content: "";
+                @apply absolute -bottom-2 left-1/2 h-[2px] w-0 -translate-x-1/2 bg-primary-deep transition-all duration-300;
+            }
+        }
+
+        /* Khi hover vào .nav-link thì gạch chân của span sẽ hiện ra */
+        &:hover span::after {
+            @apply w-full;
+        }
+    }
+
+    .country-item-btn {
+        @apply cursor-pointer flex items-center gap-[5px] justify-between w-full py-[9px] px-[15px] transition-colors text-[#50000bbf] font-isl-andvari text-[14px] font-bold uppercase;
+    }
+
+
+    .country-checkmark {
+        @apply opacity-0 invisible transition-all duration-200 mr-[5px];
+    }
+
+    .country-item.active .country-checkmark {
+        @apply opacity-100 visible;
+    }
+
+    /* Currency Symbol - Hidden by default, shown on hover */
+    .country-currency {
+        @apply ml-auto opacity-0 invisible transition-all duration-200 text-[14px] font-isl-andvari;
+    }
+
+    .country-item-btn:hover .country-currency {
+        @apply opacity-100 visible;
+    }
+
+    .sidebar-nav-link {
+        @apply block w-full h-auto pb-[15px] border-b border-primary hover:underline text-primary-deep font-aeonik text-[14px] font-bold underline-offset-3;
+        line-height: calc(1 + 0.3 / 1);
+    }
+
+    /* Floating Label Search */
+    .search-container {
+        @apply relative flex-1 flex items-center;
+    }
+
+    .search-input {
+        @apply w-full px-[15px] pt-[15px] pb-[15px] h-[52px] border border-[#50000bbf] text-[#50000bbf] text-[16px] font-normal font-aeonik outline-none placeholder:font-isl-andvari placeholder-transparent flex items-center transition-all duration-200;
+    }
+
+    .search-input:focus,
+    .search-input:not(:placeholder-shown) {
+        @apply pt-[20px] pb-[4px];
+    }
+
+    .search-label {
+        @apply absolute left-[15px] top-1/2 -translate-y-1/2 text-[#50000bbf] text-[14px] font-normal font-aeonik pointer-events-none transition-all duration-200 uppercase origin-left;
+    }
+
+    .search-input:focus~.search-label,
+    .search-input:not(:placeholder-shown)~.search-label {
+        @apply top-[8px] translate-y-0 scale-[0.7];
+    }
+
+    .search-input:not(:placeholder-shown)~.search-icon {
+        @apply opacity-0 invisible;
+    }
+
+    /* Custom Scrollbar */
+    .custom-scrollbar::-webkit-scrollbar {
+        width: 3px;
+    }
+
+    .custom-scrollbar::-webkit-scrollbar-track {
+        @apply bg-transparent;
+    }
+
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+        @apply bg-primary-deep rounded-full;
+    }
+
+    /* Shop Sidebar PC Active State */
+    @media (min-width: 990px) {
+        #mobile-menu-sidebar.pc-active {
+            opacity: 1 !important;
+            visibility: visible !important;
+            transform: translateY(0) !important;
+        }
+
+        #mobile-menu-sidebar {
+            top: 119px !important;
+            margin-top: 0 !important;
+            height: calc(100vh - 103px) !important;
+        }
+
+        /* Custom scrollbar for sidebar on PC */
+        #mobile-menu-sidebar::-webkit-scrollbar {
+            width: 4px;
+        }
+
+        #mobile-menu-sidebar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        #mobile-menu-sidebar::-webkit-scrollbar-thumb {
+            background: #A40011;
+            border-radius: 999px;
+        }
+    }
+
+    /* Sidebar item hover effects on tablet and above */
+    @media (min-width: 750px) {
+
+        /* First item - target the anchor tag with gradient background */
+        #mobile-menu-sidebar ul>li:first-child>a {
+            transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        #mobile-menu-sidebar ul>li:first-child:hover>a {
+            outline: 3px solid #a40011;
+            outline-offset: -1px;
+            filter: brightness(1.08) contrast(1.05);
+            position: relative;
+            z-index: 10;
+        }
+
+        /* Other items - apply to anchor tags and images */
+        #mobile-menu-sidebar ul>li:not(:first-child) a,
+        #mobile-menu-sidebar ul>li:not(:first-child) a img {
+            transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        #mobile-menu-sidebar ul>li:not(:first-child):hover a {
+            outline: 3px solid #a40011;
+            outline-offset: -1px;
+            filter: brightness(1.08) contrast(1.05);
+            position: relative;
+            z-index: 10;
+        }
+
+        /* For images inside anchor tags */
+        #mobile-menu-sidebar ul>li:not(:first-child):hover a img {
+            outline: 3px solid #a40011;
+            outline-offset: -1px;
+            filter: brightness(1.08) contrast(1.05);
+        }
+    }
+
+    /* Cart Drawer Overlay Blur Effect */
+    .cart-drawer-overlay {
+        background: rgba(242, 224, 221, 0.5);
+        backdrop-filter: blur(0px);
+        -webkit-backdrop-filter: blur(0px);
+        will-change: opacity, backdrop-filter;
+    }
+
+    .cart-drawer-overlay.active {
+        opacity: 1 !important;
+        visibility: visible !important;
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
     }
 }
