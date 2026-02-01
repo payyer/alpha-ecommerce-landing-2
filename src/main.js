@@ -401,4 +401,296 @@ document.addEventListener('DOMContentLoaded', () => {
 
         console.log('PC currency dropdown initialized');
     }
+
+    // ========================================
+    // Hero Product Swiper Logic
+    // ========================================
+    const heroImageModal = document.getElementById('hero-image-modal');
+    const heroImageModalImg = document.getElementById('hero-image-modal-img');
+    const heroImageModalClose = document.getElementById('hero-image-modal-close');
+
+    // ========================================
+    // Hero Product Swiper Logic
+    // ========================================
+
+    // 1. Initialize Thumbs Swiper
+    const heroThumbsSwiper = new Swiper('.hero-thumbs', {
+        spaceBetween: 12, // Gap between thumbs
+        slidesPerView: 'auto',
+        freeMode: true,
+        watchSlidesProgress: true,
+        direction: 'vertical', // Dọc bên trái
+        allowTouchMove: false, // Disable drag/swipe, only allow navigation buttons
+        navigation: {
+            nextEl: '#thumbs-next',
+            prevEl: '#thumbs-prev',
+        },
+    });
+
+    // 2. Initialize Main Swiper with Thumbs
+    const heroProductSwiper = new Swiper('.hero-product-swiper', {
+        slidesPerView: 1,
+        spaceBetween: 0,
+        // Improved click handling
+        preventClicks: true,
+        preventClicksPropagation: true,
+        slideToClickedSlide: false,
+        thumbs: {
+            swiper: heroThumbsSwiper,
+        },
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+            bulletClass: 'swiper-pagination-bullet hero-bullet',
+            bulletActiveClass: 'swiper-pagination-bullet-active hero-bullet-active',
+        },
+        // Breakpoint logic
+        breakpoints: {
+            // Mobile (default)
+            0: {
+                allowTouchMove: true,
+                speed: 300, // Standard slide speed on mobile
+            },
+            // PC/Tablet (750px+)
+            750: {
+                allowTouchMove: false, // Disable swipe on PC
+                speed: 0, // Instant transition on PC
+            }
+        },
+        on: {
+            init: function () {
+                console.log('Hero Product Swiper initialized');
+            },
+            // Use Swiper's built-in click event which handles drag vs tap
+            click: function (swiper, event) {
+                // Find closest swiper-slide from the click event target
+                const slide = event.target.closest('.swiper-slide');
+                if (slide) {
+                    const img = slide.querySelector('img');
+                    if (img && heroImageModal && heroImageModalImg) {
+                        heroImageModalImg.src = img.src;
+                        heroImageModalImg.alt = img.alt || 'Product Image';
+                        heroImageModal.classList.add('active');
+                        document.body.style.overflow = 'hidden';
+                        console.log('Modal opened (via Swiper click) with image:', img.src);
+                    }
+                }
+            },
+        },
+    });
+
+    // ========================================
+    // Hero Image Modal Logic
+    // ========================================
+
+    // Close modal
+    const closeHeroImageModal = () => {
+        heroImageModal.classList.remove('active');
+        document.body.style.overflow = '';
+    };
+
+    if (heroImageModalClose) {
+        heroImageModalClose.addEventListener('click', closeHeroImageModal);
+    }
+
+    if (heroImageModal) {
+        heroImageModal.addEventListener('click', (e) => {
+            if (e.target === heroImageModal) {
+                closeHeroImageModal();
+            }
+        });
+    }
+
+    // Close modal with ESC key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && heroImageModal.classList.contains('active')) {
+            closeHeroImageModal();
+        }
+    });
+
+    // ========================================
+    // Reusable Accordion Logic (Only one open at a time)
+    // ========================================
+    document.addEventListener('click', (e) => {
+        const trigger = e.target.closest('[data-accordion-trigger]');
+        if (!trigger) return;
+
+        e.preventDefault();
+        const accordionItem = trigger.closest('.accordion-item');
+        if (!accordionItem) return;
+
+        // Find the accordion container (parent of all accordion items)
+        const accordionContainer = accordionItem.closest('[data-accordion-container]');
+        
+        if (accordionContainer) {
+            // Container exists - apply "only one open" logic
+            const isActive = accordionItem.classList.contains('active');
+
+            // Close all accordion items in the same container
+            accordionContainer.querySelectorAll('.accordion-item').forEach(item => {
+                item.classList.remove('active');
+            });
+
+            // If the clicked item wasn't active, open it
+            if (!isActive) {
+                accordionItem.classList.add('active');
+            }
+        } else {
+            // No container - allow simple toggle (for standalone accordions)
+            accordionItem.classList.toggle('active');
+        }
+    });
+
+    // ========================================
+    // Reusable Selection Logic (Format/Bundle)
+    // ========================================
+    document.addEventListener('click', (e) => {
+        const option = e.target.closest('[data-select-item]');
+        if (!option) return;
+
+        const group = option.getAttribute('data-select-group');
+        if (!group) return;
+
+        // Find all items in the same group and remove active class
+        document.querySelectorAll(`[data-select-group="${group}"]`).forEach(item => {
+            item.classList.remove('active');
+        });
+
+        // Add active class to the clicked item
+        option.classList.add('active');
+    });
+
+    // ========================================
+    // Ambassadors Video Swiper
+    // ========================================
+    const ambassadorsSwiper = new Swiper('.ambassadors-swiper', {
+        slidesPerView: 'auto',
+        spaceBetween: 12,
+        freeMode: true,
+        loop: false,
+        
+    });
+
+    // ========================================
+    // Ambassador Video Modal Logic
+    // ========================================
+    const videoModal = document.getElementById('ambassador-video-modal');
+    const videoPlayer = document.getElementById('ambassador-video-player');
+    const closeButton = document.getElementById('ambassador-video-close');
+    const muteButton = document.getElementById('ambassador-video-mute');
+
+    let isVideoMuted = false; // Start unmuted as requested
+
+    // Open modal when clicking on video slide
+    document.addEventListener('click', (e) => {
+        const trigger = e.target.closest('[data-video-modal-trigger]');
+        if (!trigger) return;
+
+        const videoUrl = trigger.getAttribute('data-video-url');
+        if (!videoUrl) return;
+
+        // Set video source and open modal
+        videoPlayer.querySelector('source').src = videoUrl;
+        videoPlayer.load();
+        
+        // Ensure volume icons match state
+        const mutedIcon = muteButton.querySelector('.muted-icon');
+        const unmutedIcon = muteButton.querySelector('.unmuted-icon');
+        
+        if (isVideoMuted) {
+            videoPlayer.muted = true;
+            mutedIcon.classList.remove('hidden');
+            unmutedIcon.classList.add('hidden');
+        } else {
+            videoPlayer.muted = false;
+            mutedIcon.classList.add('hidden');
+            unmutedIcon.classList.remove('hidden');
+        }
+        
+        // Show modal with animation
+        videoModal.classList.remove('invisible', 'opacity-0');
+        videoModal.classList.add('visible', 'opacity-100');
+        
+        // Play video
+        videoPlayer.play();
+        
+        // Prevent body scroll
+        document.body.style.overflow = 'hidden';
+    });
+
+    // Toggle Play/Pause when clicking video container
+    const videoContainer = document.getElementById('ambassador-video-container');
+    const playOverlay = document.getElementById('video-play-overlay');
+
+    videoContainer.addEventListener('click', (e) => {
+        // Don't trigger if clicking the mute button specifically
+        if (e.target.closest('#ambassador-video-mute')) return;
+
+        if (videoPlayer.paused) {
+            videoPlayer.play();
+            playOverlay.classList.remove('opacity-100');
+            playOverlay.classList.add('opacity-0');
+        } else {
+            videoPlayer.pause();
+            playOverlay.classList.remove('opacity-0');
+            playOverlay.classList.add('opacity-100');
+        }
+    });
+
+    // Reset overlay state when video ends or modal opens
+    videoPlayer.addEventListener('play', () => {
+        playOverlay.classList.remove('opacity-100');
+        playOverlay.classList.add('opacity-0');
+    });
+
+    // Close modal
+    const closeVideoModal = () => {
+        videoModal.classList.add('invisible', 'opacity-0');
+        videoModal.classList.remove('visible', 'opacity-100');
+        
+        // Pause and reset video
+        videoPlayer.pause();
+        videoPlayer.currentTime = 0;
+        
+        // Reset play overlay for next time
+        playOverlay.classList.remove('opacity-100');
+        playOverlay.classList.add('opacity-0');
+        
+        // Restore body scroll
+        document.body.style.overflow = '';
+    };
+
+    closeButton.addEventListener('click', closeVideoModal);
+
+    // Close on backdrop click
+    videoModal.addEventListener('click', (e) => {
+        if (e.target === videoModal || e.target.id === 'ambassador-video-backdrop') {
+            closeVideoModal();
+        }
+    });
+
+    // Close on ESC key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && videoModal.classList.contains('visible')) {
+            closeVideoModal();
+        }
+    });
+
+    // Mute/Unmute toggle
+    muteButton.addEventListener('click', () => {
+        isVideoMuted = !isVideoMuted;
+        videoPlayer.muted = isVideoMuted;
+        
+        // Toggle icon visibility
+        const mutedIcon = muteButton.querySelector('.muted-icon');
+        const unmutedIcon = muteButton.querySelector('.unmuted-icon');
+        
+        if (isVideoMuted) {
+            mutedIcon.classList.remove('hidden');
+            unmutedIcon.classList.add('hidden');
+        } else {
+            mutedIcon.classList.add('hidden');
+            unmutedIcon.classList.remove('hidden');
+        }
+    });
 });

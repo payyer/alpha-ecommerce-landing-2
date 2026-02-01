@@ -16,20 +16,23 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Lato:wght@100;300;400;700;900&family=Open+Sans:wght@300..800&family=Oswald:wght@200..700&family=Raleway:wght@100..900&display=swap"
     rel="stylesheet">
+
+  <!-- Swiper CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 </head>
 
 <body>
   <!-- Announcement Bar -->
   <div class="bg-primary text-white h-[55px] pc:h-[39px] relative z-100">
     <div
-      class="flex h-full flex-col pc:flex-row pc:gap-4 items-center justify-center text-center  font-isl-andvari text-[14px] font-bold  tracking-[0.28px] uppercase">
+      class="flex h-full flex-col pc:flex-row pc:gap-4 items-center justify-center text-center  font-dylova text-[14px] font-bold  tracking-[0.28px] uppercase">
       <span>2026 Starts Now:</span>
       <span>35% Off — Feel like yourself again</span>
     </div>
 
     <div class="hidden pc:block pc:absolute pc:top-[50%] pc:translate-y-[-50%] pc:right-[40px]">
       <button id="header-currency-selector" class="flex items-end cursor-pointer hover:opacity-80 transition-opacity">
-        <span id="header-currency-code" class="text-[14px] font-bold leading-[135%] font-isl-andvari">USD</span>
+        <span id="header-currency-code" class="text-[14px] font-bold leading-[135%] font-dylova">USD</span>
         <svg width="12" height="13" class="icon icon-caret transition-transform duration-200" viewBox="0 0 12 13"
           fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
           <path d="M9 4.8125L5.625 8.1875L2.25 4.8125" stroke="white" stroke-width="2" stroke-linecap="square"></path>
@@ -370,7 +373,7 @@
   </div>
 
   <!-- Header / Navigation -->
-  <header class="sticky top-0 z-99 bg-white border-b border-gray-border/50 pc:h-[64px]">
+  <header class="top-0 z-99 bg-white border-b border-gray-border/50 pc:h-[64px]">
     <nav
       class="container-custom max-w-[748px] px-[20px] tablet:max-w-[1500px] wide:px-[50px] flex items-center justify-between h-[56px] pc:h-[64px]  ">
 
@@ -604,9 +607,953 @@
   </aside>
 
   <!-- Hero Section / Product Detail -->
-  <section id="hero">
+  <section id="hero-product-detail"
+    class="container-custom max-w-full px-0 tablet:max-w-[1500px] tablet:px-5 flex flex-col tablet:flex-row tablet:gap-[3.214%] tablet:pt-[32px]">
     <!-- Left: Product Image Gallery (Swiper) -->
-    <!-- Right: Title, Rating, Price, Bundle Selector, CTA -->
+    <div class="hero-gallery tablet:w-[55%] tablet:sticky tablet:top-[100px] tablet:self-start flex flex-col-reverse tablet:flex-row justify-between ">
+      <!-- Thumbs Swiper (Hidden on mobile, visible on Tablet+) -->
+      <div class="hidden tablet:flex flex-col items-center w-[12.467%] relative ">
+        <!-- Up Arrow -->
+        <button id="thumbs-prev"
+          class="absolute top-0 left-0 z-10 w-full h-[34px] flex items-center justify-center bg-white cursor-pointer text-primary-deep transition-opacity">
+          <svg class="rotate-180" width="12" height="12" viewBox="0 0 12 12" class="icon icon-caret" fill="none"
+            xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M9 4.3125L5.625 7.6875L2.25 4.3125" stroke="#50000B" stroke-width="2" stroke-linecap="square">
+            </path>
+          </svg>
+        </button>
+
+        <div thumbsSlider="" class="swiper hero-thumbs w-full h-[660px] !ml-0 !mr-0">
+          <div class="swiper-wrapper">
+            <div
+              class="swiper-slide cursor-pointer rounded-[12px] overflow-hidden border border-transparent transition-all duration-200 !h-auto aspect-[96/104]">
+              <img
+                src="https://im8health.com/cdn/shop/files/PDP_060fbac6-1883-4c53-aae5-f791c68056a5.jpg?v=1766566335&width=1946"
+                class="w-full h-full object-cover" />
+            </div>
+            <div
+              class="swiper-slide cursor-pointer rounded-[12px] overflow-hidden border border-transparent transition-all duration-200 !h-auto aspect-[96/104]">
+              <img
+                src="https://im8health.com/cdn/shop/files/pdp_essentials-sachet_carousel01.jpg?v=1761040602&width=1646"
+                class="w-full h-full object-cover" />
+            </div>
+            <div
+              class="swiper-slide cursor-pointer rounded-[12px] overflow-hidden border border-transparent transition-all duration-200 !h-auto aspect-[96/104]">
+              <img
+                src="https://im8health.com/cdn/shop/files/pdp_essentials-sachet_carousel02.jpg?v=1761042620&width=1646"
+                class="w-full h-full object-cover" />
+            </div>
+            <div
+              class="swiper-slide cursor-pointer rounded-[12px] overflow-hidden border border-transparent transition-all duration-200 !h-auto aspect-[96/104]">
+              <img
+                src="https://im8health.com/cdn/shop/files/pdp_essentials-sachet_carousel03.jpg?v=1761040602&width=1426"
+                class="w-full h-full object-cover" />
+            </div>
+            <div
+              class="swiper-slide cursor-pointer rounded-[12px] overflow-hidden border border-transparent transition-all duration-200 !h-auto aspect-[96/104]">
+              <img
+                src="https://im8health.com/cdn/shop/files/pdp_essentials-sachet_carousel04.jpg?v=1761040602&width=1426"
+                class="w-full h-full object-cover" />
+            </div>
+            <div
+              class="swiper-slide cursor-pointer rounded-[12px] overflow-hidden border border-transparent transition-all duration-200 !h-auto aspect-[96/104]">
+              <img
+                src="https://im8health.com/cdn/shop/files/pdp_essentials-sachet_carousel05.jpg?v=1761040601&width=1426"
+                class="w-full h-full object-cover" />
+            </div>
+            <div
+              class="swiper-slide cursor-pointer rounded-[12px] overflow-hidden border border-transparent transition-all duration-200 !h-auto aspect-[96/104]">
+              <img
+                src="https://im8health.com/cdn/shop/files/pdp_essentials-sachet_carousel06.jpg?v=1761040602&width=1426"
+                class="w-full h-full object-cover" />
+            </div>
+            <div
+              class="swiper-slide cursor-pointer rounded-[12px] overflow-hidden border border-transparent transition-all duration-200 !h-auto aspect-[96/104]">
+              <img
+                src="https://im8health.com/cdn/shop/files/pdp_essentials-sachet_carousel07.jpg?v=1761040602&width=1426"
+                class="w-full h-full object-cover" />
+            </div>
+            <div
+              class="swiper-slide cursor-pointer rounded-[12px] overflow-hidden border border-transparent transition-all duration-200 !h-auto aspect-[96/104]">
+              <img src="https://im8health.com/cdn/shop/files/pdp_essentials-jar_carousel02.jpg?v=1761040602&width=1426"
+                class="w-full h-full object-cover" />
+            </div>
+            <div
+              class="swiper-slide cursor-pointer rounded-[12px] overflow-hidden border border-transparent transition-all duration-200 !h-auto aspect-[96/104]">
+              <img src="https://im8health.com/cdn/shop/files/pdp_essentials-jar_carousel03.jpg?v=1761040602&width=1426"
+                class="w-full h-full object-cover" />
+            </div>
+            <div
+              class="swiper-slide cursor-pointer rounded-[12px] overflow-hidden border border-transparent transition-all duration-200 !h-auto aspect-[96/104]">
+              <img src="https://im8health.com/cdn/shop/files/pdp_essentials-jar_carousel04.jpg?v=1761040602&width=1426"
+                class="w-full h-full object-cover" />
+            </div>
+            <div
+              class="swiper-slide cursor-pointer rounded-[12px] overflow-hidden border border-transparent transition-all duration-200 !h-auto aspect-[96/104]">
+              <img src="https://im8health.com/cdn/shop/files/pdp_essentials-jar_carousel05.jpg?v=1761040602&width=1426"
+                class="w-full h-full object-cover" />
+            </div>
+            <div
+              class="swiper-slide cursor-pointer rounded-[12px] overflow-hidden border border-transparent transition-all duration-200 !h-auto aspect-[96/104]">
+              <img src="https://im8health.com/cdn/shop/files/pdp_essentials-jar_carousel06.jpg?v=1761040602&width=1426"
+                class="w-full h-full object-cover" />
+            </div>
+            <div
+              class="swiper-slide cursor-pointer rounded-[12px] overflow-hidden border border-transparent transition-all duration-200 !h-auto aspect-[96/104]">
+              <img src="https://im8health.com/cdn/shop/files/pdp_essentials-jar_carousel07.jpg?v=1761040602&width=1426"
+                class="w-full h-full object-cover" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Down Arrow -->
+        <button id="thumbs-next"
+          class="absolute bottom-0 left-0 z-10 w-full h-[34px] flex items-center justify-center bg-white cursor-pointer text-primary-deep transition-opacity">
+          <svg width="12" height="12" viewBox="0 0 12 12" class="icon icon-caret" fill="none"
+            xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M9 4.3125L5.625 7.6875L2.25 4.3125" stroke="#50000B" stroke-width="2" stroke-linecap="square">
+            </path>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Main Swiper + Pagination Wrapper -->
+      <div class="w-full tablet:w-[85.714%] flex flex-col">
+        <!-- Main Swiper -->
+        <div class="swiper hero-product-swiper w-full !ml-0 !mr-0">
+          <div class="swiper-wrapper">
+            <!-- Slide 1: Special Image -->
+            <div class="swiper-slide cursor-pointer">
+              <img
+                src="https://im8health.com/cdn/shop/files/PDP_060fbac6-1883-4c53-aae5-f791c68056a5.jpg?v=1766566335&width=1946"
+                alt="Daily Ultimate Essentials 1" class="w-full h-full object-cover" />
+            </div>
+            <!-- Slide 2: carousel01 -->
+            <div class="swiper-slide cursor-pointer">
+              <img
+                src="https://im8health.com/cdn/shop/files/pdp_essentials-sachet_carousel01.jpg?v=1761040602&width=1646"
+                alt="Daily Ultimate Essentials 2" class="w-full h-full object-cover" />
+            </div>
+            <!-- Slide 3: carousel02 -->
+            <div class="swiper-slide cursor-pointer">
+              <img
+                src="https://im8health.com/cdn/shop/files/pdp_essentials-sachet_carousel02.jpg?v=1761042620&width=1646"
+                alt="Daily Ultimate Essentials 3" class="w-full h-full object-cover" />
+            </div>
+            <!-- Slide 4: carousel03 -->
+            <div class="swiper-slide cursor-pointer">
+              <img
+                src="https://im8health.com/cdn/shop/files/pdp_essentials-sachet_carousel03.jpg?v=1761040602&width=1426"
+                alt="Daily Ultimate Essentials 4" class="w-full h-full object-cover" />
+            </div>
+            <!-- Slide 5: carousel04 -->
+            <div class="swiper-slide cursor-pointer">
+              <img
+                src="https://im8health.com/cdn/shop/files/pdp_essentials-sachet_carousel04.jpg?v=1761040602&width=1426"
+                alt="Daily Ultimate Essentials 5" class="w-full h-full object-cover" />
+            </div>
+            <!-- Slide 6: carousel05 -->
+            <div class="swiper-slide cursor-pointer">
+              <img
+                src="https://im8health.com/cdn/shop/files/pdp_essentials-sachet_carousel05.jpg?v=1761040601&width=1426"
+                alt="Daily Ultimate Essentials 6" class="w-full h-full object-cover" />
+            </div>
+            <!-- Slide 7: carousel06 -->
+            <div class="swiper-slide cursor-pointer">
+              <img
+                src="https://im8health.com/cdn/shop/files/pdp_essentials-sachet_carousel06.jpg?v=1761040602&width=1426"
+                alt="Daily Ultimate Essentials 7" class="w-full h-full object-cover" />
+            </div>
+            <!-- Slide 8: carousel07 -->
+            <div class="swiper-slide cursor-pointer">
+              <img
+                src="https://im8health.com/cdn/shop/files/pdp_essentials-sachet_carousel07.jpg?v=1761040602&width=1426"
+                alt="Daily Ultimate Essentials 8" class="w-full h-full object-cover" />
+            </div>
+            <!-- Slide 9: jar_carousel02 -->
+            <div class="swiper-slide cursor-pointer">
+              <img src="https://im8health.com/cdn/shop/files/pdp_essentials-jar_carousel02.jpg?v=1761040602&width=1426"
+                alt="Daily Ultimate Essentials 9" class="w-full h-full object-cover" />
+            </div>
+            <!-- Slide 10: jar_carousel03 -->
+            <div class="swiper-slide cursor-pointer">
+              <img src="https://im8health.com/cdn/shop/files/pdp_essentials-jar_carousel03.jpg?v=1761040602&width=1426"
+                alt="Daily Ultimate Essentials 10" class="w-full h-full object-cover" />
+            </div>
+            <!-- Slide 11: jar_carousel04 -->
+            <div class="swiper-slide cursor-pointer">
+              <img src="https://im8health.com/cdn/shop/files/pdp_essentials-jar_carousel04.jpg?v=1761040602&width=1426"
+                alt="Daily Ultimate Essentials 11" class="w-full h-full object-cover" />
+            </div>
+            <!-- Slide 12: jar_carousel05 -->
+            <div class="swiper-slide cursor-pointer">
+              <img src="https://im8health.com/cdn/shop/files/pdp_essentials-jar_carousel05.jpg?v=1761040602&width=1426"
+                alt="Daily Ultimate Essentials 12" class="w-full h-full object-cover" />
+            </div>
+            <!-- Slide 13: jar_carousel06 -->
+            <div class="swiper-slide cursor-pointer">
+              <img src="https://im8health.com/cdn/shop/files/pdp_essentials-jar_carousel06.jpg?v=1761040602&width=1426"
+                alt="Daily Ultimate Essentials 13" class="w-full h-full object-cover" />
+            </div>
+            <!-- Slide 14: jar_carousel07 -->
+            <div class="swiper-slide cursor-pointer">
+              <img src="https://im8health.com/cdn/shop/files/pdp_essentials-jar_carousel07.jpg?v=1761040602&width=1426"
+                alt="Daily Ultimate Essentials 14" class="w-full h-full object-cover" />
+            </div>
+          </div>
+        </div>
+        <!-- Pagination - hidden using tablet:hidden because on PC we use thumbs -->
+        <div class="swiper-pagination flex !static justify-center gap-2 mt-[10px] py-[5px] tablet:hidden"></div>
+      </div>
+
+      <!-- Remove old pagination div -->
+    </div>
+
+    <!-- Right: Product Info -->
+    <div class="w-full tablet:w-[41.786%] px-[20px] pt-[22px] tablet:p-0">
+      <div class="flex tablet:inline-flex items-center font-aeonik gap-2">
+        <span class="flex gap-[2px] items-center">
+          <svg class="w-[18px] h-[18px] text-[#a30011] tablet:w-[16px] tablet:h-[16px] " style="filter: drop-shadow(0 1px 2px rgba(164, 0, 17, 0.3));"
+            fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z">
+            </path>
+          </svg>
+          <svg class="w-[18px] h-[18px] text-[#a30011] tablet:w-[16px] tablet:h-[16px] " style="filter: drop-shadow(0 1px 2px rgba(164, 0, 17, 0.3));"
+            fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z">
+            </path>
+          </svg>
+          <svg class="w-[18px] h-[18px] text-[#a30011] tablet:w-[16px] tablet:h-[16px] " style="filter: drop-shadow(0 1px 2px rgba(164, 0, 17, 0.3));"
+            fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z">
+            </path>
+          </svg>
+          <svg class="w-[18px] h-[18px] text-[#a30011] tablet:w-[16px] tablet:h-[16px] " style="filter: drop-shadow(0 1px 2px rgba(164, 0, 17, 0.3));"
+            fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z">
+            </path>
+          </svg>
+          <svg class="w-[18px] h-[18px] text-[#a30011] tablet:w-[16px] tablet:h-[16px] " style="filter: drop-shadow(0 1px 2px rgba(164, 0, 17, 0.3));"
+            fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z">
+            </path>
+          </svg>
+        </span>
+        <span class="text-[16px] tablet:text-[15px] font-bold text-primary-deep">4.8</span>
+        <span class="text-[14px] tablet:text-[14px] font-semibold text-primary-deep">from 11,825 Reviews</span>
+
+        <div class="hidden tablet:flex tablet:mt-0 mt-2 text-[13px] tablet:text-[14px] font-medium font-aeonik text-[#6b4c3a] leading-[1] items-center gap-2">
+          <span>622k+ customer purchases</span>
+          <span class=" h-[15px] text-[#d4c4b8]">|</span>
+          <span>19M+ servings</span>
+        </div>
+      </div>
+
+      <!-- Product Stats -->
+      <div class="tablet:hidden mt-2 text-[13px] font-medium font-aeonik text-[#6b4c3a] leading-[1] flex items-center gap-2">
+        <span>622k+ customer purchases</span>
+        <span class=" h-[15px] text-[#d4c4b8]">|</span>
+        <span>19M+ servings</span>
+      </div>
+
+      <!-- Product Heading -->
+      <h2
+        class="mt-[14px] text-[32px] tablet:text-[40px] tablet:tracking-[0.8px] tracking-[-0.64px] tablet:leading-[40px] leading-[35.2px] font-abc-arizona text-primary-deep">
+        Daily Ultimate Essentials:<br> All-in-One Supplement
+      </h2>
+
+      <!-- Short Description -->
+      <p class="mt-[16px] text-[16px] leading-[21.6px]  text-primary-deep pb-[12px]">
+        Engineered for peak absorption, this comprehensive formula replaces the need for 16 daily supplements with 92
+        nutrient-rich ingredients in one delicious drink.*
+      </p>
+
+      <div
+        class="p-[24px] border border-[#16A34A] rounded-[16px] bg-[linear-gradient(135deg,#f0f9f4_0%,#e8f5ec_100%)] mt-[12px]">
+        <div class="tablet:flex tablet:justify-between items-center">
+          <!-- Header Title -->
+          <h3 class="text-[18px] font-semibold text-primary-deep font-abc-arizona leading-[22.5px]">
+            Clinically Proven Results
+          </h3>
+
+          <!-- Badge -->
+          <div
+            class="mt-3 inline-block tablet:mt-0 bg-[#0f7a3a] text-white text-[11px] font-bold px-[15px] py-[4px] rounded-full tracking-wider uppercase font-aeonik">
+            90-Day Clinical Study
+          </div>
+        </div>
+
+        <!-- Results Grid -->
+        <div class="mt-5 grid grid-cols-2 gap-3 gap-x-4 tablet:grid-cols-4 tablet:gap-4">
+          <!-- Item 1 -->
+          <div class="result-card-item">
+            <div class="result-card-item-header">
+              <span class="text-[28px]">⚡</span>
+              <span class="result-card-item-value">95%</span>
+            </div>
+            <p class="result-card-item-label">More energy</p>
+          </div>
+
+          <!-- Item 2 -->
+          <div class="result-card-item">
+            <div class="result-card-item-header">
+              <span class="text-2xl">🦠</span>
+              <span class="result-card-item-value">85%</span>
+            </div>
+            <p class="result-card-item-label">Better gut health</p>
+          </div>
+
+          <!-- Item 3 -->
+          <div class="result-card-item">
+            <div class="result-card-item-header">
+              <span class="text-2xl">😴</span>
+              <span class="result-card-item-value">80%</span>
+            </div>
+            <p class="result-card-item-label">Better sleep quality</p>
+          </div>
+
+          <!-- Item 4 -->
+          <div class="result-card-item">
+            <div class="result-card-item-header">
+              <span class="text-2xl">🧠</span>
+              <span class="result-card-item-value">70%</span>
+            </div>
+            <p class="result-card-item-label">Sharper focus</p>
+          </div>
+        </div>
+
+        <!-- Disclaimer -->
+        <p class="mt-[11px] mb-[16px] text-[11px] italic text-[#666666] leading-[19.8px] font-aeonik">
+          *Based on 12-week randomized controlled trial by San Francisco Research Institute
+        </p>
+
+        <!-- Footer Section -->
+        <div class="flex flex-col gap-[16px] tablet:flex-row tablet:items-end tablet:justify-between">
+          <!-- Footer Section (Accordion) -->
+          <div class="mt-4 accordion-item tablet:max-w-[398px]!">
+            <button data-accordion-trigger
+              class="accordion-trigger justify-start text-[14px] font-bold text-left text-primary-deep underline underline-offset-3 flex items-center gap-2 font-aeonik">
+              Why These Results Matter?
+              <svg class="accordion-icon transition-transform duration-300" width="10" height="6" viewBox="0 0 10 6"
+                fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg>
+            </button>
+
+            <div class="accordion-content">
+              <div class="accordion-content-inner max-w-[480px] tablet:max-w-[398px]!">
+                <p
+                  class="text-[13px] text-[color-mix(in_oklab,#50000B_80%,transparent)] leading-[20.8px] font-aeonik pt-[25px] ">
+                  Unlike most supplements with unverified claims, IM8 is backed by a 12-week randomized controlled
+                  clinical trial. Every ingredient is NSF Certified for Sport, verifying exact dosages and testing for
+                  280+ banned substances – the same certification trusted by world-class athletes.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Certification Icons -->
+          <div class=" flex justify-end">
+            <div class="flex gap-2">
+              <img class="h-[40px] w-auto tablet:h-[50px]"
+                src="//im8health.com/cdn/shop/files/Vector_38d1c63f-d300-48b5-b6e6-084b0cf0086d.png?v=1764063546&amp;width=100"
+                alt="Certification logo" width="50" height="50" loading="lazy">
+              <img class="h-[40px] w-auto tablet:h-[50px]"
+                src="//im8health.com/cdn/shop/files/NSF_CONTENTS_CERTIFIED_White_Vert_2.png?v=1764063546&amp;width=100"
+                alt="Certification logo" width="50" height="50" loading="lazy">
+              <img class="h-[40px] w-auto tablet:h-[50px]"
+                src="//im8health.com/cdn/shop/files/b9a15702-8e60-441d-b1fd-ce12f6742dcb_svg.png?v=1764063545&amp;width=100"
+                alt="Certification logo" width="50" height="50" loading="lazy">
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- 1. Select Format -->
+      <div class="my-4">
+        <h4 class="text-[16px] font-bold text-primary-deep font-aeonik mb-3">1. Select Format:</h4>
+        <div class="flex gap-3">
+          <!-- Option 1: Jar -->
+          <div class="option-card active group" data-select-item data-select-group="product-format">
+            <!-- Most Popular Badge -->
+            <div class="badge-pill badge-pill-red badge-pill-red-active">
+              MOST POPULAR
+            </div>
+            <div
+              class="w-[60px] flex items-center justify-center shrink-0 border-r bg-[#F2E2D5] border-[#e1cbb9]/30 group-[.active]:bg-[#E9DACE] group-[.active]:border-[#50000B]/10 rounded-l-[16px]">
+              <img src="https://im8health.com/cdn/shop/files/UX-Input_1.jpg?v=8068906590217553853"
+                class="w-[60px] h-[94px] rounded-l-[16px] object-contain" alt="Forever Jar">
+            </div>
+            <div class="flex flex-col justify-center px-2 py-3 flex-1">
+              <h5 class="text-[17px] font-medium leading-[17px] tracking-[-0.4px] text-primary-deep font-abc-arizona">
+                Forever Jar</h5>
+              <p
+                class="text-[12px] font-medium leading-[16.2px] tracking-[-0.4px] text-primary-deep font-aeonik mt-[2px]">
+                (354g) $4.73 AUD / serving</p>
+            </div>
+          </div>
+
+          <!-- Option 2: Sachets -->
+          <div class="option-card group" data-select-item data-select-group="product-format">
+            <div
+              class="w-[60px] flex items-center justify-center shrink-0 border-r bg-[#F2E2D5] border-[#e1cbb9]/30 group-[.active]:bg-[#E9DACE] group-[.active]:border-[#50000B]/10 rounded-l-[16px]">
+              <img src="https://im8health.com/cdn/shop/files/UX-Input_2.jpg?v=4366596284312861834"
+                class="w-[60px] h-[94px] rounded-l-[16px] object-contain" alt="Single-Serve Sachets">
+            </div>
+            <div class="flex flex-col justify-center px-2 py-3 flex-1">
+              <h5 class="text-[17px] font-medium leading-[17px] tracking-[-0.4px] text-primary-deep font-abc-arizona">
+                Single-Serve Sachets</h5>
+              <p
+                class="text-[12px] font-medium leading-[16.2px] tracking-[-0.4px] text-primary-deep font-aeonik mt-[2px]">
+                (354g) $5.21 AUD / serving</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. Subscribe & Save -->
+      <div class="mt-[16px] mb-[12px]">
+        <h4 class="text-[16px] font-bold text-primary-deep font-aeonik mb-4">2. Subscribe & Save:</h4>
+        <div class="flex flex-col gap-4">
+          <!-- Option 1: 90-Day Supply (Selected by default) -->
+          <div class="option-card active group flex-col p-5" data-select-item data-select-group="subscribe-save">
+            <!-- Badges -->
+            <div class="badge-pill badge-pill-yellow !right-auto !left-[20px] text-[11px] text-[#932f2c]">
+              NEW YEAR OFFER
+            </div>
+            <div class="badge-pill badge-pill-red badge-pill-red-active !right-[20px]">
+              BEST VALUE
+            </div>
+
+            <!-- Header -->
+            <div class="sub-option-header">
+              <div class="flex items-start gap-1">
+                <div class="radio-custom">
+                  <div class="radio-inner"></div>
+                </div>
+                <div>
+                  <h5 class="text-[17px] font-medium text-[#50000b] font-abc-arizona leading-[17px]">
+                    90-Day Supply <span class="text-[#10b981] font-bold text-[16px]">(Save 22%)</span>
+                  </h5>
+                  <p class="text-[14px] text-[#50000b] font-aeonik mt-1 ">
+                    Billed $426.00 AUD every 12 weeks
+                  </p>
+                </div>
+              </div>
+              <div class="text-right">
+                <div class="text-[14px] font-bold text-[#50000b] font-aeonik">$142 /mo</div>
+                <div class="text-[12px] text-[#50000b] font-dylova uppercase mt-1 -letter-spacing-[0.4px]">
+                  $4.73 AUD / SERVING
+                </div>
+              </div>
+            </div>
+
+            <!-- Benefits List -->
+            <div class="mt-3 ml-[32px] pt-[12px] border-t border-[#e1cbb9]/30">
+              <div class="benefit-item">
+                <span>🎓</span>
+                <p>Exclusive Access to 90 Day IM8 Transformation Program (see below)</p>
+              </div>
+              <div class="benefit-item">
+                <span>💰</span>
+                <p>Maximum savings – lowest price per serving</p>
+              </div>
+              <div class="benefit-item">
+                <span>👦</span>
+                <p>Share with family and friends</p>
+              </div>
+              <div class="benefit-item">
+                <span>🎁</span>
+                <p>Free Daily Ultimate Mixer (US$18)</p>
+              </div>
+              <div class="benefit-item">
+                <span>🚚</span>
+                <p>Free Shipping to US, UK, CA, and most of EU and APAC</p>
+              </div>
+              <div class="benefit-item">
+                <span>⏸️</span>
+                <p>Cancel or pause anytime</p>
+              </div>
+              <div class="benefit-item">
+                <span>🎁</span>
+                <p>Free Welcome Kit: Signature Red Cup + 5 Travel Sachets (US$18)</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Option 2: 30-Day Supply -->
+          <div class="option-card group flex-col p-5" data-select-item data-select-group="subscribe-save">
+            <!-- Header -->
+            <div class="sub-option-header">
+              <div class="flex items-start gap-1">
+                <div class="radio-custom">
+                  <div class="radio-inner"></div>
+                </div>
+                <div>
+                  <h5 class="text-[17px] font-medium text-[#50000b] font-abc-arizona leading-[17px]">
+                    30-Day Supply <span class="text-[#50000b]/70 font-aeonik">(Save 20%)</span>
+                  </h5>
+                  <p class="text-[14px] text-[#50000b] font-aeonik mt-1">
+                    Billed $162.00 AUD every 4 weeks
+                  </p>
+                </div>
+              </div>
+              <div class="text-right">
+                <div class="text-[14px] font-bold text-[#50000b] font-aeonik">$162 /mo</div>
+                <div class="text-[12px] text-[#50000b] font-dylova uppercase mt-1 -letter-spacing-[0.4px]">
+                  $5.40 AUD / SERVING
+                </div>
+              </div>
+            </div>
+
+            <!-- Basic Benefits -->
+            <div class="mt-3 ml-[32px] pt-[12px] border-t border-[#e1cbb9]/30">
+              <div class="benefit-item">
+                <span><img src="https://im8health.com/cdn/shop/t/121/assets/sub_check.svg" class="w-[16px] h-auto"
+                    alt=""></span>
+                <p>30-day money back guarantee</p>
+              </div>
+              <div class="benefit-item">
+                <span><img src="https://im8health.com/cdn/shop/t/121/assets/sub_check.svg" class="w-[16px] h-auto"
+                    alt=""></span>
+                <p>Cancel or pause anytime</p>
+              </div>
+              <div class="benefit-item">
+                <span><img src="https://im8health.com/cdn/shop/t/121/assets/sub_check.svg" class="w-[16px] h-auto"
+                    alt=""></span>
+                <p>Free Shipping to US, UK, CA, and most of EU and APAC</p>
+              </div>
+              <div class="benefit-item">
+                <span><img src="https://im8health.com/cdn/shop/t/121/assets/sub_check.svg" class="w-[16px] h-auto"
+                    alt=""></span>
+                <p>Free Welcome Kit: Signature Red Cup + 5 Travel Sachets (US$18)</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <a href="#"
+        class="mt-[16px] font-aeonik text-[14px] font-medium text-center underline underline-offset-[2px] mx-auto block w-fit text-primary-deep">
+        One Time Purchase $203
+      </a>
+
+      <button
+        class="h-[48px] w-full rounded-[100px] bg-primary text-white font-aeonik text-[12px] font-bold mt-[16px]">START
+        MY 90-DAY TRANSFORMATION PROGRAM $142 AUD/mo</button>
+
+      <div
+        class="flex items-center gap-[10px] mt-[16px]  py-[12px] px-[14px] rounded-[12px] bg-[linear-gradient(135deg,#f0fdf4_0%,#c7f2d6_100%)] border border-[#22c55e]">
+        <span class="w-[22px] h-[22px] rounded-full bg-[#22c55e] flex items-center justify-center">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-[12px] h-[12px] text-white" fill="none" viewBox="0 0 24 24"
+            stroke-width="2.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"></path>
+          </svg>
+        </span>
+        <p class="text-[13px] text-[#166534] font-aeonik font-medium leading-[18.2px]">New Year discount automatically
+          applied at checkout
+        </p>
+      </div>
+
+      <div
+        class="mt-[15px] py-[22px] px-[18px] rounded-[16px] border-2 border-[#BF9C74] bg-[linear-gradient(171deg,#FFEFD6_6.83%,rgba(255,238,219,0.5)_135.82%)]">
+        <div
+          class="flex items-center rounded-[20px] px-[14px] py-[6px] gap-[5px] bg-[linear-gradient(90deg,#EEB87A_0%,#DFCE89_100%)] w-fit mx-auto justify-center font-aeonik font-bold text-[11px] leading-[19.8px] letter-spacing-[0.5px] text-primary-deep">
+          <span>🎓</span><span>90-DAY MEMBERS
+            ONLY</span>
+        </div>
+        <h3 class="mt-[14px] text-center font-aeonik text-[22px] font-medium leading-[26.4px] text-primary-deep">90-Day
+          IM8
+          Transformation Program</h3>
+        <p class="mt-[6px] text-center font-aeonik text-[13px] font-medium leading-[18.85px] text-primary-deep">
+          Exclusive access
+          to
+          quarterly masterclasses with our world-class Medical and Performance Experts</p>
+        <div class="mt-[16px] grid grid-cols-3 gap-[12px]">
+          <!-- item 01 -->
+          <div class="transition-transform duration-500 ease-smooth hover:-translate-y-1 cursor-pointer">
+            <a href="#">
+              <img
+                class="rounded-[10px] mb-[10px] w-full h-auto aspect-[1] max-h-[215px] border-2 border-[#BF9C74] shadow-[0_2px_8px_-2px_rgba(0,0,0,0.08)] transition-[border-color,box-shadow] duration-500 ease-[cubic-bezier(0.23,1,0.32,1)]"
+                src="https://im8health.com/cdn/shop/files/sab_Dawn_grid.jpg?v=1747304298&width=300" alt="">
+            </a>
+            <p class="text-center mb-[3px] text-[12px] leading-[1.3]  font-bold font-aeonik text-primary-deep">Dr. Dawn
+              Mussallem</p>
+            <p class="text-[#6b4c3a] text-center text-[10px] leading-[1.35] font-aeonik">Cancer Survivor & Physician at Mayo Clinic</p>
+          </div>
+
+          <!-- item 02 -->
+          <div class="transition-transform duration-500 ease-smooth hover:-translate-y-1 cursor-pointer">
+            <a href="#">
+              <img
+                class="rounded-[10px] mb-[10px] w-full h-auto border-2 border-[#BF9C74] shadow-[0_2px_8px_-2px_rgba(0,0,0,0.08)] transition-[border-color,box-shadow] duration-500 ease-[cubic-bezier(0.23,1,0.32,1)]"
+                src="https://im8health.com/cdn/shop/files/Rectangle_3_68b5f4fc-fe48-466d-9d97-487fbdea1942.png?v=1764066245&width=300" alt="">
+            </a>
+            <p class="text-center mb-[3px] text-[12px] leading-[1.3]  font-bold font-aeonik text-primary-deep">Bobby Rich</p>
+            <p class="text-[#6b4c3a] text-center text-[10px] leading-[1.35] font-aeonik">Trainer to David Beckham and World-class Athletes</p>
+          </div>
+
+          <!-- item 03 -->
+          <div class="transition-transform duration-500 ease-smooth hover:-translate-y-1 cursor-pointer">
+            <a href="#">
+              <img
+                class="rounded-[10px] mb-[10px] w-full h-auto border-2 border-[#BF9C74] shadow-[0_2px_8px_-2px_rgba(0,0,0,0.08)] transition-[border-color,box-shadow] duration-500 ease-[cubic-bezier(0.23,1,0.32,1)]"
+                src="https://im8health.com/cdn/shop/files/Rectangle_4_9e90556f-68ae-405e-a707-89eff3d64066.png?v=1764066309&width=300" alt="">
+            </a>
+            <p class="text-center mb-[3px] text-[12px] leading-[1.3]  font-bold font-aeonik text-primary-deep">Dr. Suzanne Devkota</p>
+            <p class="text-[#6b4c3a] text-center text-[10px] leading-[1.35] font-aeonik">Gut Health Expert & Prof at Cedars Sinai</p>
+          </div>
+
+          <!-- item 04 -->
+          <div class="transition-transform duration-500 ease-smooth hover:-translate-y-1 cursor-pointer">
+            <a href="#">
+              <img
+                class="rounded-[10px] mb-[10px] w-full h-auto border-2 border-[#BF9C74] shadow-[0_2px_8px_-2px_rgba(0,0,0,0.08)] transition-[border-color,box-shadow] duration-500 ease-[cubic-bezier(0.23,1,0.32,1)]"
+                src="https://im8health.com/cdn/shop/files/Rectangle_5.png?v=1764066392&width=300" alt="">
+            </a>
+            <p class="text-center mb-[3px] text-[12px] leading-[1.3]  font-bold font-aeonik text-primary-deep">Tavi Castro</p>
+            <p class="text-[#6b4c3a] text-center text-[10px] leading-[1.35] font-aeonik">Breathwork Expert & Free-Diving World Record Holder</p>
+          </div>
+
+          <!-- item 05 -->
+          <div class="transition-transform duration-500 ease-smooth hover:-translate-y-1 cursor-pointer">
+            <a href="#">
+              <img
+                class="rounded-[10px] mb-[10px] w-full h-auto border-2 border-[#BF9C74] shadow-[0_2px_8px_-2px_rgba(0,0,0,0.08)] transition-[border-color,box-shadow] duration-500 ease-[cubic-bezier(0.23,1,0.32,1)]"
+                src="https://im8health.com/cdn/shop/files/Rectangle_7.png?v=1764066430&width=300" alt="">
+            </a>
+            <p class="text-center mb-[3px] text-[12px] leading-[1.3]  font-bold font-aeonik text-primary-deep">Dr. Amy Shah</p>
+            <p class="text-[#6b4c3a] text-center text-[10px] leading-[1.35] font-aeonik">Double-Board Certified Physician and Host of "Save Yourself" Podcast</p>
+          </div>
+
+          <!-- item 06 -->
+          <div class="transition-transform duration-500 ease-smooth hover:-translate-y-1 cursor-pointer">
+            <a href="#">
+              <img
+                class="rounded-[10px] mb-[10px] w-full h-auto border-2 border-[#BF9C74] shadow-[0_2px_8px_-2px_rgba(0,0,0,0.08)] transition-[border-color,box-shadow] duration-500 ease-[cubic-bezier(0.23,1,0.32,1)]"
+                src="https://im8health.com/cdn/shop/files/Rectangle_6.png?v=1764066459&width=300" alt="">
+            </a>
+            <p class="text-center mb-[3px] text-[12px] leading-[1.3]  font-bold font-aeonik text-primary-deep">Dr. Ara Suppiah</p>
+            <p class="text-[#6b4c3a] text-center text-[10px] leading-[1.35] font-aeonik">Performance & Longevity Physician at LIV Golf</p>
+          </div>
+        </div>
+
+        <p class="text-primary-deep font-aeonik text-[12px] font-medium leading-[18px] text-center mt-[20px] pt-[14px] border-t border-[rgba(191,156,116,0.3)]">
+          Get personalized guidance, exclusive content, and direct access to leading experts in health optimization, performance, and longevity.
+        </p>
+
+        <a href="#" class="shadow-[0_2px_8px_-2px_rgba(191,156,116,0.25),inset_0_1px_0_rgba(255,255,255,0.3)] relative overflow-hidden bg-[linear-gradient(90deg,#EEB87A_0%,#DFCE89_100%)] font-aeonik text-[13px] font-bold leading-[23.4px] letter-spacing-[0.5px] text-primary-deep rounded-[12px] h-[51px] flex items-center justify-center group mt-[16px]">
+          <!-- Lớp Overlay cố định (Static) -->
+          <span class="absolute inset-0 bg-[linear-gradient(135deg,rgba(238,184,122,0.5)_0%,rgba(223,206,137,0.3)_50%,rgba(238,184,122,0.5)_100%)] rounded-[12px] pointer-events-none"></span>
+          
+          <!-- Lớp Shimmer di chuyển khi hover (After-like) -->
+          <span class="absolute inset-0 w-full h-full bg-[linear-gradient(90deg,transparent_0%,rgba(255,255,255,0.35)_50%,transparent_100%)] -translate-x-full group-hover:translate-x-full transition-transform duration-600 ease-[cubic-bezier(0.4,0,0.2,1)] pointer-events-none z-1"></span>
+          
+          <span class="relative z-10 uppercase">
+            Learn More About the Program
+          </span>
+          <span class="relative z-10 ml-1">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M6 12l4-4-4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+          </span>
+        </a>
+      </div>
+
+      <div
+        class="flex items-center gap-[12px] mt-[16px] py-[16px] px-[20px] rounded-[16px] bg-[linear-gradient(135deg,#f0fdf4_0%,#c7f2d6_100%)] border border-[#22c55e]">
+        <img src="https://im8health.com/cdn/shop/files/greencheck.png?v=1764066515&width=72" class="w-[30px] h-[30px] shrink-0"  alt=""/>
+        <div class="">
+          <p class="text-[18px] text-primary-deep font-semibold leading-[21.6px] mb-[4px] font-aeonik">30-Day 100% Money Back Guarantee</p>
+          <p class="text-[12px] text-primary-deep leading-[16.8px] font-aeonik">We're so confident you'll love it, take a full 30 days to decide</p>
+        </div>
+      </div>
+
+      <div class="mt-[16px]" data-accordion-container>
+        <!-- Item 1: Ingredients -->
+        <div class="accordion-item border-b border-primary-deep">
+          <button data-accordion-trigger
+            class="accordion-trigger w-full flex items-center justify-between py-[16px] text-left">
+            <span class="text-[16px] font-bold text-primary-deep leading-[21.6px] font-aeonik">Ingredients</span>
+            <div class="relative w-[16px] h-[16px] shrink-0">
+              <img src="https://im8health.com/cdn/shop/t/121/assets/product_banner_plus.svg" class="accordion-plus w-full h-full" alt="" />
+              <img src="https://im8health.com/cdn/shop/t/121/assets/product_banner_minus.svg" class="accordion-minus w-full h-full" alt="" />
+            </div>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-content-inner pb-[16px]">
+              <p class="text-[16px] text-primary-deep leading-[18.2px] font-normal font-aeonik">
+                Our comprehensive formula combines 92 nutrient-rich ingredients to fuel your body with everything it
+                needs for optimal health. Packed with essential vitamins, minerals, antioxidants, superfoods, greens,
+                pre-pro-post-biotics and clinical dosages of CoQ10 and MSM.*
+              </p>
+              <a href="#"
+                class="text-[16px] block w-fit mt-[12px] text-primary-deep leading-[18.2px] font-normal font-aeonik underline underline-offset-4">View
+                Supplement Facts</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 2: Third-Party Tested -->
+        <div class="accordion-item border-b border-primary-deep">
+          <button data-accordion-trigger
+            class="accordion-trigger w-full flex items-center justify-between py-[16px] text-left">
+            <span class="text-[16px] font-bold text-primary-deep leading-[21.6px] font-aeonik">Third-Party Tested</span>
+            <div class="relative w-[16px] h-[16px] shrink-0">
+              <img src="https://im8health.com/cdn/shop/t/121/assets/product_banner_plus.svg" class="accordion-plus w-full h-full" alt="" />
+              <img src="https://im8health.com/cdn/shop/t/121/assets/product_banner_minus.svg" class="accordion-minus w-full h-full" alt="" />
+            </div>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-content-inner pb-[16px]">
+              <p class="text-[16px] text-primary-deep leading-[18.2px] font-normal font-aeonik">
+                Every batch is rigorously tested by independent third-party laboratories to ensure purity, potency, and
+                safety. NSF Certified for Sport, verifying exact dosages and testing for 280+ banned substances.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 3: How to Enjoy -->
+        <div class="accordion-item border-b border-primary-deep">
+          <button data-accordion-trigger
+            class="accordion-trigger w-full flex items-center justify-between py-[16px] text-left">
+            <span class="text-[16px] font-bold text-primary-deep leading-[21.6px] font-aeonik">How to Enjoy</span>
+            <div class="relative w-[16px] h-[16px] shrink-0">
+              <img src="https://im8health.com/cdn/shop/t/121/assets/product_banner_plus.svg" class="accordion-plus w-full h-full" alt="" />
+              <img src="https://im8health.com/cdn/shop/t/121/assets/product_banner_minus.svg" class="accordion-minus w-full h-full" alt="" />
+            </div>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-content-inner pb-[16px]">
+              <p class="text-[16px] text-primary-deep leading-[18.2px] font-normal font-aeonik">
+                Mix one scoop (11.8g) with 8-12 oz of cold water, milk, or your favorite beverage. Shake or stir well
+                and enjoy daily, preferably in the morning for sustained energy throughout the day.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 4: Tasting Notes -->
+        <div class="accordion-item border-b border-primary-deep">
+          <button data-accordion-trigger
+            class="accordion-trigger w-full flex items-center justify-between py-[16px] text-left">
+            <span class="text-[16px] font-bold text-primary-deep leading-[21.6px] font-aeonik">Tasting Notes</span>
+            <div class="relative w-[16px] h-[16px] shrink-0">
+              <img src="https://im8health.com/cdn/shop/t/121/assets/product_banner_plus.svg" class="accordion-plus w-full h-full" alt="" />
+              <img src="https://im8health.com/cdn/shop/t/121/assets/product_banner_minus.svg" class="accordion-minus w-full h-full" alt="" />
+            </div>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-content-inner pb-[16px]">
+              <p class="text-[16px] text-primary-deep leading-[18.2px] font-normal font-aeonik">
+                A delicious blend with natural berry and citrus notes, subtly sweet with earthy undertones from our
+                superfood greens. No artificial flavors or sweeteners—just pure, clean nutrition that tastes as good as
+                it makes you feel.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="my-[22px]">
+        <h4 class="font-abc-arizona text-primary-deep text-[20px] font-medium leading-[24px]">What our IM8 Ambassadors are saying</h4>
+        
+        <!-- Ambassadors Video Swiper -->
+        <div class="mt-[16px] relative">
+          <div class="swiper ambassadors-swiper overflow-visible">
+            <div class="swiper-wrapper">
+              <!-- Video Slide 1: Dr. Robin B -->
+              <div class="swiper-slide !w-[104px] !h-[168px]" data-video-modal-trigger data-video-url="https://im8health.com/cdn/shop/videos/c/vp/12eb3b01fd54404d81ef22a20d415f15/12eb3b01fd54404d81ef22a20d415f15.HD-1080p-2.5Mbps-38313438.mp4?v=0">
+                <div class="relative w-full h-full rounded-[12px] overflow-hidden cursor-pointer group">
+                  <div class="absolute inset-0 bg-gradient-to-b from-black/20 to-black/40"></div>
+                  <img src="https://im8health.com/cdn/shop/files/preview_images/thm-expert_robinB2.jpg?v=1731999065" alt="Ambassador video" class="w-full h-full object-cover">
+                  <div class="absolute bottom-3 right-3 flex items-center justify-center">
+                    <svg class="play-icon w-[24px] h-[24px] transition-transform group-hover:scale-110" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <circle cx="11.75" cy="12.25" r="9.25" fill="#50000B"></circle>
+                      <g clip-path="url(#clip0_play_1)"><path fill-rule="evenodd" clip-rule="evenodd" d="M20.4865 3.51351L12 0L3.51351 3.51351L0 12L3.51351 20.4865L12 24L20.4865 20.4865L24 12L20.4865 3.51351ZM9.75 15.8971L16.5 12L9.75 8.10289V15.8971Z" fill="white"></path></g><defs><clipPath id="clip0_play_1"><rect width="24" height="24" fill="white"></rect></clipPath></defs>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Video Slide 2: Bobby Rich -->
+              <div class="swiper-slide !w-[104px] !h-[168px]" data-video-modal-trigger data-video-url="http://im8health.com/cdn/shop/videos/c/vp/e83246a2555949139036fce9bc1359a2/e83246a2555949139036fce9bc1359a2.HD-1080p-3.3Mbps-38232086.mp4?v=0">
+                <div class="relative w-full h-full rounded-[12px] overflow-hidden cursor-pointer group">
+                  <div class="absolute inset-0 bg-gradient-to-b from-black/20 to-black/40"></div>
+                  <img src="https://im8health.com/cdn/shop/files/preview_images/influe-carou_bobbyRich2.jpg?v=1731863977" alt="Ambassador video" class="w-full h-full object-cover">
+                  <div class="absolute bottom-3 right-3 flex items-center justify-center">
+                    <svg class="play-icon w-[24px] h-[24px] transition-transform group-hover:scale-110" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <circle cx="11.75" cy="12.25" r="9.25" fill="#50000B"></circle>
+                      <g clip-path="url(#clip0_play_2)"><path fill-rule="evenodd" clip-rule="evenodd" d="M20.4865 3.51351L12 0L3.51351 3.51351L0 12L3.51351 20.4865L12 24L20.4865 20.4865L24 12L20.4865 3.51351ZM9.75 15.8971L16.5 12L9.75 8.10289V15.8971Z" fill="white"></path></g><defs><clipPath id="clip0_play_2"><rect width="24" height="24" fill="white"></rect></clipPath></defs>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Video Slide 3: Amy Shah -->
+              <div class="swiper-slide !w-[104px] !h-[168px]" data-video-modal-trigger data-video-url="https://im8health.com/cdn/shop/videos/c/vp/f7f68153342f4566ad00f411e2fb407b/f7f68153342f4566ad00f411e2fb407b.HD-1080p-7.2Mbps-38222859.mp4?v=0">
+                <div class="relative w-full h-full rounded-[12px] overflow-hidden cursor-pointer group">
+                  <div class="absolute inset-0 bg-gradient-to-b from-black/20 to-black/40"></div>
+                  <img src="https://im8health.com/cdn/shop/files/preview_images/thm-expert_amyShah2.jpg?v=1731864964" alt="Ambassador video" class="w-full h-full object-cover">
+                  <div class="absolute bottom-3 right-3 flex items-center justify-center">
+                    <svg class="play-icon w-[24px] h-[24px] transition-transform group-hover:scale-110" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <circle cx="11.75" cy="12.25" r="9.25" fill="#50000B"></circle>
+                      <g clip-path="url(#clip0_play_3)"><path fill-rule="evenodd" clip-rule="evenodd" d="M20.4865 3.51351L12 0L3.51351 3.51351L0 12L3.51351 20.4865L12 24L20.4865 20.4865L24 12L20.4865 3.51351ZM9.75 15.8971L16.5 12L9.75 8.10289V15.8971Z" fill="white"></path></g><defs><clipPath id="clip0_play_3"><rect width="24" height="24" fill="white"></rect></clipPath></defs>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Video Slide 4: Dustin Poirier -->
+              <div class="swiper-slide !w-[104px] !h-[168px]" data-video-modal-trigger data-video-url="https://im8health.com/cdn/shop/videos/c/vp/064b8beaa0b04a4fad25676155936d3a/064b8beaa0b04a4fad25676155936d3a.HD-1080p-2.5Mbps-38221672.mp4?v=0">
+                <div class="relative w-full h-full rounded-[12px] overflow-hidden cursor-pointer group">
+                  <div class="absolute inset-0 bg-gradient-to-b from-black/20 to-black/40"></div>
+                  <img src="https://im8health.com/cdn/shop/files/preview_images/thm-influ_dustinPoirier.jpg?v=1731833492" alt="Ambassador video" class="w-full h-full object-cover">
+                  <div class="absolute bottom-3 right-3 flex items-center justify-center">
+                    <svg class="play-icon w-[24px] h-[24px] transition-transform group-hover:scale-110" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <circle cx="11.75" cy="12.25" r="9.25" fill="#50000B"></circle>
+                      <g clip-path="url(#clip0_play_4)"><path fill-rule="evenodd" clip-rule="evenodd" d="M20.4865 3.51351L12 0L3.51351 3.51351L0 12L3.51351 20.4865L12 24L20.4865 20.4865L24 12L20.4865 3.51351ZM9.75 15.8971L16.5 12L9.75 8.10289V15.8971Z" fill="white"></path></g><defs><clipPath id="clip0_play_4"><rect width="24" height="24" fill="white"></rect></clipPath></defs>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Video Slide 5 -->
+              <div class="swiper-slide !w-[104px] !h-[168px]" data-video-modal-trigger data-video-url="https://im8health.com/cdn/shop/videos/c/vp/809d17a1684d40058d499ecd9afe9e21/809d17a1684d40058d499ecd9afe9e21.HD-1080p-4.8Mbps-38222820.mp4?v=0">
+                <div class="relative w-full h-full rounded-[12px] overflow-hidden cursor-pointer group">
+                  <div class="absolute inset-0 bg-gradient-to-b from-black/20 to-black/40"></div>
+                  <img src="https://im8health.com/cdn/shop/files/preview_images/image_54.png?v=1731863088" alt="Ambassador video" class="w-full h-full object-cover">
+                  <div class="absolute bottom-3 right-3 flex items-center justify-center">
+                    <svg class="play-icon w-[24px] h-[24px] transition-transform group-hover:scale-110" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <circle cx="11.75" cy="12.25" r="9.25" fill="#50000B"></circle>
+                      <g clip-path="url(#clip0_play_5)"><path fill-rule="evenodd" clip-rule="evenodd" d="M20.4865 3.51351L12 0L3.51351 3.51351L0 12L3.51351 20.4865L12 24L20.4865 20.4865L24 12L20.4865 3.51351ZM9.75 15.8971L16.5 12L9.75 8.10289V15.8971Z" fill="white"></path></g><defs><clipPath id="clip0_play_5"><rect width="24" height="24" fill="white"></rect></clipPath></defs>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Video Slide 6 -->
+              <div class="swiper-slide !w-[104px] !h-[168px]" data-video-modal-trigger data-video-url="https://im8health.com/cdn/shop/videos/c/vp/1f4b2af008104c92a29f9d78814f1aa0/1f4b2af008104c92a29f9d78814f1aa0.HD-1080p-3.3Mbps-38232121.mp4?v=0">
+                <div class="relative w-full h-full rounded-[12px] overflow-hidden cursor-pointer group">
+                  <div class="absolute inset-0 bg-gradient-to-b from-black/20 to-black/40"></div>
+                  <img src="https://im8health.com/cdn/shop/files/preview_images/1f4b2af008104c92a29f9d78814f1aa0.thumbnail.0000000000.jpg?v=1731860287" alt="Ambassador video" class="w-full h-full object-cover">
+                  <div class="absolute bottom-3 right-3 flex items-center justify-center">
+                    <svg class="play-icon w-[24px] h-[24px] transition-transform group-hover:scale-110" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <circle cx="11.75" cy="12.25" r="9.25" fill="#50000B"></circle>
+                      <g clip-path="url(#clip0_play_6)"><path fill-rule="evenodd" clip-rule="evenodd" d="M20.4865 3.51351L12 0L3.51351 3.51351L0 12L3.51351 20.4865L12 24L20.4865 20.4865L24 12L20.4865 3.51351ZM9.75 15.8971L16.5 12L9.75 8.10289V15.8971Z" fill="white"></path></g><defs><clipPath id="clip0_play_6"><rect width="24" height="24" fill="white"></rect></clipPath></defs>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Video Modal -->
+      <div id="ambassador-video-modal" class="fixed inset-0 z-[9999] flex items-center justify-center opacity-0 invisible transition-all duration-300">
+        <!-- Backdrop overlay -->
+        <div id="ambassador-video-backdrop" class="absolute inset-0 backdrop-blur-sm bg-[rgba(242,224,221,0.5)]"></div>
+        
+        <!-- Modal Content -->
+        <div class="relative w-full max-w-[375px] tablet:max-w-[450px] mx-auto px-[20px] z-10">
+          <!-- Close Button - Outside video on mobile, positioned top-right -->
+          <button id="ambassador-video-close" class="absolute -top-[24px] right-[32px] w-[48px] h-[48px] z-20 transition-transform hover:scale-110">
+            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <g clip-path="url(#clip0_2974_31845)">
+                <g filter="url(#filter0_b_2974_31845)">
+                  <path d="M24 0L40.973 7.02703L48 24L40.973 40.973L24 48L7.02703 40.973L0 24L7.02703 7.02703L24 0Z" fill="white" fill-opacity="0.8"></path>
+                  <path d="M7.40974 7.40974L24 0.541158L40.5903 7.40974L47.4588 24L40.5903 40.5903L24 47.4588L7.40974 40.5903L0.541158 24L7.40974 7.40974Z" stroke="#50000B"></path>
+                </g>
+                <path d="M30.3633 30.3646L17.6354 17.6367" stroke="#50000B" stroke-width="2" stroke-linecap="square"></path>
+                <path d="M30.3633 17.6367L17.6354 30.3646" stroke="#50000B" stroke-width="2" stroke-linecap="square"></path>
+              </g>
+              <defs>
+                <filter id="filter0_b_2974_31845" x="-12" y="-12" width="72" height="72" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                  <feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood>
+                  <feGaussianBlur in="BackgroundImageFix" stdDeviation="6"></feGaussianBlur>
+                  <feComposite in2="SourceAlpha" operator="in" result="effect1_backgroundBlur_2974_31845"></feComposite>
+                  <feBlend mode="normal" in="SourceGraphic" in2="effect1_backgroundBlur_2974_31845" result="shape"></feBlend>
+                </filter>
+                <clipPath id="clip0_2974_31845">
+                  <rect width="48" height="48" fill="white"></rect>
+                </clipPath>
+              </defs>
+            </svg>
+          </button>
+
+          <!-- Video Container with fixed mobile size -->
+          <div class="relative rounded-[16px] overflow-hidden bg-black w-full max-h-[546px] tablet:max-h-[624px] h-full pc:h-auto pc:aspect-[9/16] group/video cursor-pointer" id="ambassador-video-container">
+            <video id="ambassador-video-player" class="w-full h-full object-cover" playsinline>
+              <source src="" type="video/mp4">
+            </video>
+
+            <!-- Big Play Icon (shown when paused) -->
+            <div id="video-play-overlay" class="absolute inset-0 flex items-center justify-center bg-black/10 transition-opacity duration-300 opacity-0 pointer-events-none">
+                <svg width="64" height="64" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="11.75" cy="12.25" r="9.25" fill="#50000B"></circle>
+                    <g clip-path="url(#clip0_modal_play)">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M20.4865 3.51351L12 0L3.51351 3.51351L0 12L3.51351 20.4865L12 24L20.4865 20.4865L24 12L20.4865 3.51351ZM9.75 15.8971L16.5 12L9.75 8.10289V15.8971Z" fill="white"></path>
+                    </g>
+                    <defs>
+                        <clipPath id="clip0_modal_play">
+                            <rect width="24" height="24" fill="white"></rect>
+                        </clipPath>
+                    </defs>
+                </svg>
+            </div>
+
+            <!-- Mute/Unmute Button - Inside video, bottom-left -->
+            <button id="ambassador-video-mute" class="absolute bottom-[16px] left-[16px] w-[48px] h-[48px] z-20 transition-transform hover:scale-110">
+              <!-- Muted Icon (shown when video is muted) -->
+              <svg class="muted-icon absolute inset-0" width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g clip-path="url(#clip0_muted)">
+                  <path d="M24 0L40.973 7.02703L48 24L40.973 40.973L24 48L7.02703 40.973L0 24L7.02703 7.02703L24 0Z" fill="white"></path>
+                  <g clip-path="url(#clip1_muted)">
+                    <path d="M29.5498 26.8C30.3315 26.0202 30.8319 25.0028 30.9723 23.9076C31.1127 22.8125 30.8851 21.7017 30.3253 20.75" stroke="#50000B" stroke-width="1.125" stroke-miterlimit="10" stroke-linecap="square"></path>
+                    <path d="M32.3496 29.6C33.8136 28.1262 34.7254 26.1933 34.9317 24.1262C35.1381 22.0592 34.6264 19.9841 33.4826 18.25" stroke="#50000B" stroke-width="1.125" stroke-miterlimit="10" stroke-linecap="square"></path>
+                    <path d="M19.5 27.75H15C14.4696 27.75 13.9609 27.5393 13.5858 27.1642C13.2107 26.7891 13 26.2804 13 25.75V20.75C13 20.2196 13.2107 19.7109 13.5858 19.3358C13.9609 18.9607 14.4696 18.75 15 18.75H19.5L27 13.25V20.25" stroke="#50000B" stroke-width="1.125" stroke-miterlimit="10"></path>
+                    <path d="M27 24.25V33.25L22 29.5835" stroke="#50000B" stroke-width="1.125" stroke-miterlimit="10" stroke-linecap="square"></path>
+                    <path d="M13.5 33.75L34.5 12.75" stroke="#50000B" stroke-width="1.125" stroke-miterlimit="10" stroke-linecap="square"></path>
+                  </g>
+                </g>
+                <defs>
+                  <clipPath id="clip0_muted">
+                    <rect width="48" height="48" fill="white"></rect>
+                  </clipPath>
+                  <clipPath id="clip1_muted">
+                    <rect width="24" height="24" fill="white" transform="translate(12 11.25)"></rect>
+                  </clipPath>
+                </defs>
+              </svg>
+              
+              <!-- Unmuted Icon (shown when video has sound) -->
+              <svg class="unmuted-icon absolute inset-0 hidden" width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g clip-path="url(#clip0_unmuted)">
+                  <path d="M24 0L40.973 7.02703L48 24L40.973 40.973L24 48L7.02703 40.973L0 24L7.02703 7.02703L24 0Z" fill="white"></path>
+                  <g clip-path="url(#clip1_unmuted)">
+                    <path d="M29.5498 26.8C30.3315 26.0202 30.8319 25.0028 30.9723 23.9076C31.1127 22.8125 30.8851 21.7017 30.3253 20.75" stroke="#50000B" stroke-width="1.125" stroke-miterlimit="10" stroke-linecap="square"></path>
+                    <path d="M32.3496 29.6C33.8136 28.1262 34.7254 26.1933 34.9317 24.1262C35.1381 22.0592 34.6264 19.9841 33.4826 18.25" stroke="#50000B" stroke-width="1.125" stroke-miterlimit="10" stroke-linecap="square"></path>
+                    <path d="M19.5 27.75H15C14.4696 27.75 13.9609 27.5393 13.5858 27.1642C13.2107 26.7891 13 26.2804 13 25.75V20.75C13 20.2196 13.2107 19.7109 13.5858 19.3358C13.9609 18.9607 14.4696 18.75 15 18.75H19.5L27 13.25V33.25L19.5 27.75Z" stroke="#50000B" stroke-width="1.125" stroke-miterlimit="10"></path>
+                  </g>
+                </g>
+                <defs>
+                  <clipPath id="clip0_unmuted">
+                    <rect width="48" height="48" fill="white"></rect>
+                  </clipPath>
+                  <clipPath id="clip1_unmuted">
+                    <rect width="24" height="24" fill="white" transform="translate(12 11.25)"></rect>
+                  </clipPath>
+                </defs>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
 
   <!-- Announcement Bar / Promo Banner -->
@@ -1264,6 +2211,49 @@
     </div>
   </aside>
 
+  <!-- Hero Product Image Modal -->
+  <div id="hero-image-modal"
+    class="fixed inset-0 z-[9999] transition-opacity duration-300 opacity-0 invisible flex items-center justify-center p-4">
+    <div class="relative w-full max-w-[640px] ">
+      <!-- Close Button -->
+      <button id="hero-image-modal-close"
+        class="absolute -top-[24px] right-[16px] z-10 w-[48px] h-[48px] flex items-center justify-center rounded-full ">
+        <svg class="w-[48px] h-[48px]" width="48" height="48" viewBox="0 0 48 48" fill="none"
+          xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <g clip-path="url(#clip0_2571_42707)">
+            <g filter="url(#filter0_b_2571_42707)">
+              <path d="M24 0L40.973 7.02703L48 24L40.973 40.973L24 48L7.02703 40.973L0 24L7.02703 7.02703L24 0Z"
+                fill="white" fill-opacity="1"></path>
+              <path
+                d="M7.40974 7.40974L24 0.541158L40.5903 7.40974L47.4588 24L40.5903 40.5903L24 47.4588L7.40974 40.5903L0.541158 24L7.40974 7.40974Z"
+                stroke="#50000B"></path>
+            </g>
+            <path d="M30.3633 30.3639L17.6354 17.636" stroke="#50000B" stroke-width="2" stroke-linecap="square"></path>
+            <path d="M30.3633 17.636L17.6354 30.3639" stroke="#50000B" stroke-width="2" stroke-linecap="square"></path>
+          </g>
+          <defs>
+            <filter id="filter0_b_2571_42707" x="-12" y="-12" width="72" height="72" filterUnits="userSpaceOnUse"
+              color-interpolation-filters="sRGB">
+              <feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood>
+              <feGaussianBlur in="BackgroundImageFix" stdDeviation="6"></feGaussianBlur>
+              <feComposite in2="SourceAlpha" operator="in" result="effect1_backgroundBlur_2571_42707"></feComposite>
+              <feBlend mode="normal" in="SourceGraphic" in2="effect1_backgroundBlur_2571_42707" result="shape">
+              </feBlend>
+            </filter>
+            <clipPath id="clip0_2571_42707">
+              <rect width="48" height="48" fill="white"></rect>
+            </clipPath>
+          </defs>
+        </svg>
+      </button>
+
+      <!-- Modal Image -->
+      <img id="hero-image-modal-img" src="" alt="Product" class="w-full h-auto rounded-[12px]" />
+    </div>
+  </div>
+
+  <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script type="module" src="/src/main.js"></script>
 </body>
 

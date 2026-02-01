@@ -232,6 +232,28 @@
 }
 
 /* ============================================
+   DYLOVA5TUFF FONT FAMILY
+   ============================================ */
+@font-face {
+    font-family: 'Dylova5Tuff';
+    src: url('../fonts/dylova5tuff/DYLOVA5TUFF/DYLOVA5TUFF.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* ============================================
+   WAGON SANS FONT FAMILY
+   ============================================ */
+@font-face {
+    font-family: 'Wagon Sans';
+    src: url('../fonts/Wagon_Sans/wagon_sans.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* ============================================
    ISL ANDVARI FONT FAMILY
    ============================================ */
 @font-face {

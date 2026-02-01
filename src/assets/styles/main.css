@@ -11,7 +11,9 @@
     }
 
     body {
-        @apply bg-cream text-dark font-inter antialiased;
+        @apply text-[#000000] font-inter antialiased;
+        background: #fff url(//im8health.com/cdn/shop/files/Frame_1000004811-min.jpg?v=1727698766) no-repeat top center;
+        background-size: 100% auto;
     }
 
     button {
@@ -20,6 +22,8 @@
 }
 
 @layer components {
+
+
     .container-custom {
         @apply mx-auto w-full px-5 wide:px-[50px] max-w-[709px] tablet:max-w-[1500px];
     }
@@ -45,7 +49,7 @@
     }
 
     .country-item-btn {
-        @apply cursor-pointer flex items-center gap-[5px] justify-between w-full py-[9px] px-[15px] transition-colors text-[#50000bbf] font-isl-andvari text-[14px] font-bold uppercase;
+        @apply cursor-pointer flex items-center gap-[5px] justify-between w-full py-[9px] px-[15px] transition-colors text-[#50000bbf] font-dylova text-[14px] font-bold uppercase;
     }
 
 
@@ -59,7 +63,7 @@
 
     /* Currency Symbol - Hidden by default, shown on hover */
     .country-currency {
-        @apply ml-auto opacity-0 invisible transition-all duration-200 text-[14px] font-isl-andvari;
+        @apply ml-auto opacity-0 invisible transition-all duration-200 text-[14px] font-dylova;
     }
 
     .country-item-btn:hover .country-currency {
@@ -77,7 +81,7 @@
     }
 
     .search-input {
-        @apply w-full px-[15px] pt-[15px] pb-[15px] h-[52px] border border-[#50000bbf] text-[#50000bbf] text-[16px] font-normal font-aeonik outline-none placeholder:font-isl-andvari placeholder-transparent flex items-center transition-all duration-200;
+        @apply w-full px-[15px] pt-[15px] pb-[15px] h-[52px] border border-[#50000bbf] text-[#50000bbf] text-[16px] font-normal font-aeonik outline-none placeholder:font-dylova placeholder-transparent flex items-center transition-all duration-200;
     }
 
     .search-input:focus,
@@ -191,5 +195,330 @@
         visibility: visible !important;
         backdrop-filter: blur(8px);
         -webkit-backdrop-filter: blur(8px);
+    }
+
+
+
+
+    /* ======================================== */
+    /* Hero Product Swiper Styles */
+    /* ======================================== */
+    .hero-product-swiper {
+        position: relative;
+    }
+
+    .hero-product-swiper .swiper-pagination {
+        @apply bottom-4;
+    }
+
+    .hero-product-swiper .swiper-slide {
+        cursor: pointer;
+    }
+
+    /* Fade-in animation only on tablet+ */
+    @media (min-width: 750px) {
+        .hero-product-swiper .swiper-slide {
+            opacity: 0 !important;
+            transition: opacity 400ms ease-in-out !important;
+        }
+
+        .hero-product-swiper .swiper-slide-active {
+            opacity: 1 !important;
+        }
+    }
+
+    .hero-product-swiper .swiper-slide img {
+        user-select: none;
+        -webkit-user-drag: none;
+    }
+
+    /* Hero Gallery Responsive Logic */
+    @media (min-width: 750px) {
+
+        /* Ensure the main swiper is always square and matches its width height-wise */
+        .hero-product-swiper {
+            aspect-ratio: 1 / 1 !important;
+            height: auto !important;
+        }
+
+        .hero-product-swiper .swiper-wrapper {
+            height: 100% !important;
+        }
+
+        .hero-product-swiper .swiper-slide {
+            height: 100% !important;
+            aspect-ratio: 1 / 1 !important;
+            border-radius: 16px;
+            overflow: hidden;
+        }
+
+        .hero-product-swiper .swiper-slide img {
+            width: 100% !important;
+            height: 100% !important;
+            object-fit: cover !important;
+        }
+
+        /* Thumbnails match the main gallery height */
+        .hero-thumbs {
+            /* Width is roughly 12.467% of 55% (~6.8vw), height should be ~44vw or 47vw max */
+            height: 47.14vw !important;
+            /* Matches (55% * 85.714%) width of gallery */
+            max-height: 660px !important;
+        }
+
+        /* Nav buttons scale proportionally */
+        #thumbs-prev,
+        #thumbs-next {
+            height: 2.428vw !important;
+            /* ~34px at 1400px width */
+            max-height: 34px !important;
+        }
+    }
+
+    /* Mobile defaults */
+    @media (max-width: 749px) {
+        .hero-product-swiper {
+            aspect-ratio: 1 / 1;
+        }
+
+        .hero-product-swiper .swiper-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    .swiper.hero-product-swiper .swiper-pagination .swiper-pagination-bullet-active {
+        background-color: #50000B !important;
+    }
+
+    /* Custom bullet classes */
+    .hero-bullet {
+        width: 10px !important;
+        height: 10px !important;
+        background-color: #ff9693 !important;
+        opacity: 1 !important;
+        margin: 0 !important;
+        border-radius: 50% !important;
+    }
+
+    .hero-bullet-active {
+        background-color: #50000B !important;
+    }
+
+    /* Hero Image Modal */
+    #hero-image-modal {
+        background: rgba(242, 224, 221, 0.5);
+        backdrop-filter: blur(0px);
+        -webkit-backdrop-filter: blur(0px);
+        will-change: opacity, backdrop-filter;
+        transition: all 0.3s ease;
+    }
+
+    #hero-image-modal.active {
+        opacity: 1 !important;
+        visibility: visible !important;
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+    }
+
+    #hero-image-modal .relative {
+        animation: modalSlideUp 0.3s ease-out;
+    }
+
+    @keyframes modalSlideUp {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* Add cursor pointer to slides for better UX */
+    .hero-product-swiper .swiper-slide {
+        cursor: pointer;
+    }
+
+    .hero-product-swiper .swiper-slide img {
+        user-select: none;
+        -webkit-user-drag: none;
+    }
+
+    /* Hero Thumbs Styles */
+    .hero-thumbs .swiper-slide-thumb-active {
+        @apply border-primary-deep;
+        border-color: #50000B !important;
+        border-width: 1px !important;
+    }
+
+    .hero-thumbs {
+        /* Hide scrollbar for cleaner look */
+        scrollbar-width: none;
+        /* Firefox */
+        -ms-overflow-style: none;
+        /* IE and Edge */
+    }
+
+    .hero-thumbs::-webkit-scrollbar {
+        display: none;
+    }
+
+    /* Hide thumb nav buttons when at edges */
+    #thumbs-prev.swiper-button-disabled,
+    /* Clinical Results Item Classes */
+    .result-card-item {
+        @apply flex flex-col;
+    }
+
+    .result-card-item-header {
+        @apply flex items-center gap-[3px];
+    }
+
+    .result-card-item-value {
+        @apply text-[26px] text-[#16A34A] font-abc-arizona;
+    }
+
+    .result-card-item-label {
+        @apply text-[13px] font-medium text-primary-deep leading-[16.9px] font-aeonik;
+    }
+
+    /* ======================================== */
+    /* Reusable Accordion Styles */
+    /* ======================================== */
+    .accordion-item {
+        @apply flex flex-col w-full transition-all duration-300;
+    }
+
+    .accordion-trigger {
+        @apply cursor-pointer flex items-center justify-between transition-all duration-300;
+    }
+
+    /* Plus/Minus icon toggle logic */
+    .accordion-plus {
+        display: block;
+    }
+    .accordion-minus {
+        display: none;
+    }
+    .accordion-item.active .accordion-plus {
+        display: none;
+    }
+    .accordion-item.active .accordion-minus {
+        display: block;
+    }
+
+    /* Accordion content height transition */
+    .accordion-content {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-in-out;
+    }
+
+    .accordion-item.active .accordion-content {
+        max-height: 500px; /* Adjust based on your longest content */
+    }
+
+    .accordion-content-inner {
+        overflow: hidden;
+        /* Prevent text from showing when collapsed */
+        visibility: hidden;
+        opacity: 0;
+        transition: visibility 0s 0.3s, opacity 0.15s 0.15s;
+    }
+
+    .accordion-item.active .accordion-content-inner {
+        visibility: visible;
+        opacity: 1;
+        transition: visibility 0s 0s, opacity 0.15s 0.15s;
+    }
+
+    /* ======================================== */
+    /* Reusable Option Card Styles */
+    /* ======================================== */
+    .option-card {
+        @apply flex border rounded-[16px] cursor-pointer transition-all duration-200 w-full relative border-[#e1cbb9] bg-white;
+    }
+
+    .option-card.active {
+        @apply border-primary;
+        background: linear-gradient(120deg, rgba(245, 234, 234, 0.80) 0%, rgba(255, 242, 237, 0.60) 100%) !important;
+    }
+
+    /* Generic Badge Pill */
+    .badge-pill {
+        @apply absolute text-white text-[10px] font-bold px-[15px] py-[5px] rounded-[20px] uppercase z-10 font-dylova border border-white/10 transition-all duration-200;
+        top: -9px;
+        right: 16px;
+        opacity: 0.8;
+    }
+
+    .option-card.active .badge-pill {
+        opacity: 1;
+    }
+
+    .badge-pill-red {
+        @apply bg-[#a40011] leading-[8px];
+        box-shadow: 0 2px 6px -2px rgba(164, 0, 17, 0.25);
+    }
+
+    .option-card.active .badge-pill-red-active {
+        @apply bg-[#d8000a];
+        filter: saturate(1.15) brightness(1.05);
+    }
+
+    .badge-pill-yellow {
+        @apply bg-[#ffdd31] text-[#50000B] leading-[10px];
+        filter: saturate(1.15) brightness(1.05);
+    }
+
+    /* Subscription Specifics */
+    .sub-option-header {
+        @apply flex justify-between items-start w-full;
+    }
+
+    .radio-custom {
+        width: 24px;
+        height: 24px;
+        background-image: url('https://im8health.com/cdn/shop/t/121/assets/radio_blank.svg');
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        flex-shrink: 0;
+        min-width: 24px;
+        margin-right: 4px;
+        margin-bottom: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        filter: saturate(.85) brightness(.95);
+        opacity: 0.75;
+        transition: background-color .18s cubic-bezier(.22, 1, .36, 1), border-color .12s cubic-bezier(0, 0, .2, 1), box-shadow .25s cubic-bezier(.22, 1, .36, 1), filter .22s cubic-bezier(.22, 1, .36, 1);
+    }
+
+    .option-card.active .radio-custom {
+        border-color: #a40011;
+        filter: saturate(1.15) brightness(1.05);
+        opacity: 1;
+        /* Removes grayscale and applies branding saturation */
+    }
+
+    .radio-inner {
+        @apply w-[10px] h-[10px] rounded-full bg-transparent transition-all duration-200;
+    }
+
+    .option-card.active .radio-inner {
+        @apply bg-[#A40011];
+    }
+
+    .benefit-item {
+        @apply relative text-[#50000b] text-[14px] font-aeonik font-medium leading-[21.6px] tracking-[0.4px] mb-[3px];
+    }
+
+    .benefit-item span {
+        @apply absolute left-[-22px] top-1/2 -translate-y-1/2 flex items-center justify-center;
     }
 }

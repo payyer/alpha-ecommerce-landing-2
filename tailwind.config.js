@@ -22,7 +22,8 @@ export default {
                 // Custom Fonts (Imported via fonts.css)
                 'aeonik': ['Aeonik', 'sans-serif'],
                 'abc-arizona': ['ABC Arizona Flare', 'serif'],
-                'isl-andvari': ['ISL Andvari', 'sans-serif'],
+                'wagon-sans': ['Wagon Sans', 'sans-serif'],
+                'dylova': ['Dylova5Tuff', 'sans-serif'],
             },
             colors: {
                 // Primary Brand Colors
