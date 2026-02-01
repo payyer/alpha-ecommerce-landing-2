@@ -518,7 +518,13 @@
         @apply relative text-[#50000b] text-[14px] font-aeonik font-medium leading-[21.6px] tracking-[0.4px] mb-[3px];
     }
 
+
     .benefit-item span {
         @apply absolute left-[-22px] top-1/2 -translate-y-1/2 flex items-center justify-center;
+    }
+
+    /* Reviews Swiper Marquee Effect */
+    .reviews-swiper .swiper-wrapper {
+        transition-timing-function: linear !important;
     }
 }

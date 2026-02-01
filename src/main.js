@@ -693,4 +693,28 @@ document.addEventListener('DOMContentLoaded', () => {
             unmutedIcon.classList.remove('hidden');
         }
     });
+
+    // ========================================
+    // Reviews Swiper - Marquee Style
+    // ========================================
+    if (typeof Swiper !== 'undefined') {
+        const reviewsSwiper = new Swiper('.reviews-swiper', {
+            slidesPerView: 'auto',
+            spaceBetween: 15,
+            loop: true,
+            loopedSlides: 12, // Double the slides for bidirectional loop
+            speed: 4000,
+            grabCursor: true,
+            allowTouchMove: true,
+            watchSlidesProgress: true,
+            autoplay: {
+                delay: 0,
+                disableOnInteraction: false,
+            },
+        });
+        
+        console.log('Reviews Swiper (marquee) initialized');
+    } else {
+        console.error('Swiper not loaded');
+    }
 });
