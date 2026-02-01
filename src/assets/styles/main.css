@@ -519,6 +519,8 @@
     }
 
 
+
+
     .benefit-item span {
         @apply absolute left-[-22px] top-1/2 -translate-y-1/2 flex items-center justify-center;
     }
@@ -526,5 +528,233 @@
     /* Reviews Swiper Marquee Effect */
     .reviews-swiper .swiper-wrapper {
         transition-timing-function: linear !important;
+    }
+
+    /* ===== ORGAN SYSTEMS SECTION ===== */
+    
+    /* Section Background Transition */
+    .organ-systems {
+        @apply relative pt-16 pb-20 tablet:pt-20 tablet:pb-[100px] pc:pt-[120px] pc:pb-[160px] overflow-hidden;
+        transition: background 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* Toggle Button Container */
+    .organ-systems__toggle-btn {
+        @apply font-aeonik text-primary-deep transition-colors duration-300;
+        z-index: 10;
+    }
+
+    .organ-systems__toggle-btn--active {
+        @apply !text-white;
+    }
+
+    .organ-systems__toggle-indicator {
+        @apply absolute top-1 left-1 tablet:top-1.5 tablet:left-1.5 h-[calc(100%-8px)] tablet:h-[calc(100%-12px)] w-[calc(50%-4px)] tablet:w-[calc(50%-6px)] rounded-full shadow-lg transition-all duration-500 ease-out z-0;
+        background: linear-gradient(135deg, #50000B 0%, #A40011 100%);
+    }
+
+    /* Toggle Indicator Position & Color */
+    .organ-systems[data-active-product="longevity"] .organ-systems__toggle-indicator {
+        transform: translateX(100%);
+        background: linear-gradient(90deg, #D47E2F 0%, #3A0000 100%);
+    }
+
+    /* Content Panel Hide/Show */
+    .organ-systems__content {
+        @apply hidden;
+    }
+
+    .organ-systems__content--active {
+        @apply block;
+        animation: fadeInUp 0.4s ease-out;
+    }
+
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(10px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* Card Styling */
+    .organ-card {
+        @apply relative flex flex-col items-center justify-center gap-2 tablet:gap-3;
+        @apply px-3 py-5 tablet:px-4 tablet:py-7 min-h-[110px] tablet:min-h-[140px];
+        @apply rounded-2xl tablet:rounded-3xl border;
+        @apply backdrop-blur-md transition-all duration-300;
+        background: linear-gradient(145deg, rgba(255, 255, 255, 0.95) 0%, rgba(245, 234, 234, 0.9) 100%);
+        border-color: rgba(164, 0, 17, 0.08);
+        box-shadow: 0 4px 20px rgba(164, 0, 17, 0.06), inset 0 1px 0 rgba(255, 255, 255, 0.9);
+    }
+
+    .organ-card:hover {
+        @apply -translate-y-1;
+        border-color: rgba(164, 0, 17, 0.15);
+        box-shadow: 0 6px 28px rgba(164, 0, 17, 0.09);
+    }
+
+    .organ-card--active {
+        @apply text-white;
+        background: linear-gradient(145deg, #A40011 0%, #50000B 100%);
+        border-color: #A40011;
+        box-shadow: 0 8px 32px rgba(164, 0, 17, 0.18);
+    }
+
+    .organ-card--active:hover {
+        @apply -translate-y-0.5;
+    }
+
+    /* Longevity Card Variant */
+    .organ-card--longevity {
+        background: linear-gradient(145deg, rgba(255, 255, 255, 0.95) 0%, rgba(250, 247, 238, 0.9) 100%);
+        border-color: rgba(231, 141, 45, 0.08);
+    }
+
+    .organ-card--longevity:hover {
+        border-color: rgba(231, 141, 45, 0.15);
+    }
+
+    .organ-card--longevity.organ-card--active {
+        background: linear-gradient(145deg, #E78D2D 0%, #3A0000 100%);
+        border-color: #E78D2D;
+        box-shadow: 0 8px 32px rgba(231, 141, 45, 0.18);
+    }
+
+    /* Card Number */
+    .organ-card__number {
+        @apply absolute top-2 left-3 text-[10px] font-medium text-gray-400 opacity-60 font-aeonik;
+    }
+
+    .organ-card--active .organ-card__number {
+        @apply text-white opacity-50;
+    }
+
+    /* Card Icon */
+    .organ-card__icon {
+        @apply w-10 h-10 tablet:w-12 tablet:h-12 flex items-center justify-center;
+        @apply text-primary-deep transition-all duration-300;
+    }
+
+    .organ-card__icon svg {
+        @apply w-full h-full;
+    }
+
+    .organ-card--active .organ-card__icon {
+        @apply text-white scale-105;
+    }
+
+    .organ-card--longevity .organ-card__icon {
+        @apply text-[#E78D2D];
+    }
+
+    /* Card Label */
+    .organ-card__label {
+        @apply text-[11px] tablet:text-[13px] font-medium text-center leading-tight font-aeonik;
+        @apply text-primary-deep transition-colors duration-300;
+    }
+
+    .organ-card--active .organ-card__label {
+        @apply text-white;
+    }
+
+    /* Detail Panel */
+    .organ-detail {
+        @apply relative rounded-3xl tablet:rounded-[36px] p-6 tablet:p-12;
+        @apply backdrop-blur-2xl border-2;
+        background: linear-gradient(145deg, rgba(255, 255, 255, 0.98) 0%, rgba(245, 234, 234, 0.95) 100%);
+        border-color: rgba(164, 0, 17, 0.08);
+        box-shadow: 0 20px 60px rgba(164, 0, 17, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.9);
+    }
+
+    .organ-detail--longevity {
+        background: linear-gradient(145deg, rgba(255, 255, 255, 0.98) 0%, rgba(250, 247, 238, 0.95) 100%);
+        border-color: rgba(231, 141, 45, 0.08);
+        box-shadow: 0 20px 60px rgba(231, 141, 45, 0.12);
+    }
+
+    /* Detail Content */
+    .organ-detail__content {
+        @apply hidden;
+    }
+
+    .organ-detail__content--active {
+        @apply block;
+        animation: fadeInUp 0.4s ease-out;
+    }
+
+    /* Detail Icon Wrapper */
+    .organ-detail__icon-wrapper {
+        @apply relative;
+    }
+
+    .organ-detail__icon {
+        @apply w-16 h-16 tablet:w-20 tablet:h-20 flex items-center justify-center;
+        @apply rounded-2xl tablet:rounded-3xl border;
+        @apply text-primary-deep;
+        background: linear-gradient(135deg, rgba(80, 0, 11, 0.08) 0%, rgba(80, 0, 11, 0.03) 100%);
+        border-color: rgba(80, 0, 11, 0.06);
+    }
+
+    .organ-detail__icon svg {
+        @apply w-[55%] h-[55%];
+    }
+
+    .organ-detail__icon--longevity {
+        @apply text-[#E78D2D];
+        background: linear-gradient(135deg, rgba(231, 141, 45, 0.12) 0%, rgba(231, 141, 45, 0.04) 100%);
+        border-color: rgba(231, 141, 45, 0.15);
+    }
+
+    /* Detail Number Badge */
+    .organ-detail__number {
+        @apply absolute -top-2 -right-2 w-7 h-7 flex items-center justify-center;
+        @apply rounded-full bg-primary-deep text-white;
+        @apply text-[11px] font-semibold font-aeonik shadow-md;
+    }
+
+    .organ-detail__number--longevity {
+        @apply bg-[#E78D2D];
+    }
+
+    /* Theme Background Transitions */
+    .organ-systems--essentials {
+        @apply bg-grid-essentials;
+    }
+
+    .organ-systems--longevity {
+        @apply bg-grid-longevity;
+    }
+
+    /* PC Layout Enhancements */
+    @media (min-width: 990px) {
+        /* Larger cards on PC */
+        .organ-card {
+            @apply pc:min-h-[140px] pc:p-6;
+        }
+
+        .organ-card__icon {
+            @apply pc:w-14 pc:h-14;
+        }
+
+        .organ-card__label {
+            @apply pc:text-sm;
+        }
+
+        /* Detail panel adjustments for PC */
+        .organ-detail {
+            @apply pc:min-h-[500px];
+        }
+
+        .organ-detail__icon {
+            @apply pc:w-20 pc:h-20;
+        }
+
+        .organ-detail h3 {
+            @apply pc:text-[36px];
+        }
     }
 }

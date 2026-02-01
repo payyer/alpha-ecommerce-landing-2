@@ -52,6 +52,10 @@ export default {
                 '99': '99',
                 '100': '100',
             },
+            backgroundImage: {
+                'grid-essentials': "repeating-linear-gradient(0deg, transparent 0px, transparent 60px, rgba(164, 0, 17, 0.08) 60px, rgba(164, 0, 17, 0.08) 61px), repeating-linear-gradient(90deg, transparent 0px, transparent 60px, rgba(164, 0, 17, 0.06) 60px, rgba(164, 0, 17, 0.06) 61px), linear-gradient(180deg, #F5EAEA 0%, #FDF8F8 15%, #F9F1F1 40%, #F5EAEA 70%, rgba(164, 0, 17, 0.12) 100%)",
+                'grid-longevity': "repeating-linear-gradient(0deg, transparent 0px, transparent 60px, rgba(180, 140, 30, 0.08) 60px, rgba(180, 140, 30, 0.08) 61px), repeating-linear-gradient(90deg, transparent 0px, transparent 60px, rgba(180, 140, 30, 0.06) 60px, rgba(180, 140, 30, 0.06) 61px), linear-gradient(180deg, #FAF7EE 0%, #FFFDF5 15%, #F8F4E8 40%, #FAF7EE 70%, rgba(231, 141, 45, 0.08) 100%)",
+            },
         },
     },
     plugins: [],

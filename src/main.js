@@ -718,3 +718,116 @@ document.addEventListener('DOMContentLoaded', () => {
         console.error('Swiper not loaded');
     }
 });
+
+// ===== ORGAN SYSTEMS INTERACTIVE SECTION =====
+
+document.addEventListener('DOMContentLoaded', () => {
+    const organSystemsSection = document.getElementById('organ-systems-section');
+    if (!organSystemsSection) return;
+
+    const toggleButtons = organSystemsSection.querySelectorAll('.organ-systems__toggle-btn');
+    const contents = organSystemsSection.querySelectorAll('.organ-systems__content');
+    
+    // Data for all organ system cards with detailed information
+    const organSystemsData = {
+        essentials: [
+            { title: 'Digestive Support', meta: 'Prebiotics, Probiotics, Postbiotics, Enzymes', description: 'A complete 4-tier digestive support system featuring 10 Billion CFU of probiotics and clinically proven enzymes to optimize nutrient absorption and gut health.' },
+            { title: 'Immune Support', meta: 'Vitamin C, Zinc, Elderberry, Echinacea', description: 'Comprehensive immune defense featuring clinically dosed vitamins and powerful botanical extracts to support your body\'s natural immune response.' },
+            { title: 'Cardiovascular Support', meta: 'CoQ10, Omega-3, L-Carnitine, Hawthorn', description: 'Supports heart health and circulation with essential nutrients and antioxidants that promote optimal cardiovascular function.' },
+            { title: 'Muscular Support', meta: 'Essential Amino Acids, Creatine, HMB', description: 'Provides essential nutrients for muscle maintenance, recovery, and growth with clinically effective doses of key performance ingredients.' },
+            { title: 'Skeletal Support', meta: 'Calcium, Vitamin D3, K2, Magnesium', description: 'Complete bone health formula with synergistic nutrients that support bone density, strength, and long-term skeletal integrity.' },
+            { title: 'Integumentary Support', meta: 'Collagen, Biotin, Vitamin E, Hyaluronic Acid', description: 'Promotes healthy skin, hair, and nails with scientifically-backed ingredients that support structure, hydration, and renewal.' },
+            { title: 'Nervous Support', meta: 'B-Complex, L-Theanine, Ashwagandha, Magnesium', description: 'Supports cognitive function, stress response, and nervous system health with adaptogens and essential neurological nutrients.' },
+            { title: 'Endocrine Support', meta: 'Iodine, Selenium, Chromium, Adaptogens', description: 'Balances hormone production and supports glandular health with targeted nutrients for optimal endocrine system function.' },
+            { title: 'Urinary Support', meta: 'Cranberry, D-Mannose, Uva Ursi, Dandelion', description: 'Promotes urinary tract health and kidney function with natural botanicals and compounds that support cleansing and protection.' }
+        ],
+        longevity: [
+            { title: 'Cellular Cleansing Support', meta: 'Autophagy Activation', description: 'Activates the body\'s natural cellular cleanup process (autophagy) to remove damaged components and improve cellular efficiency.' },
+            { title: 'Cellular Renewal Support', meta: 'Mitochondrial Biogenesis', description: 'Stimulates the creation of new mitochondria and promotes cellular regeneration for enhanced energy production and vitality.' },
+            { title: 'Cellular Aging Support', meta: 'Senolytic Activation', description: 'Targets and eliminates senescent cells that accumulate with age, reducing inflammation and promoting tissue rejuvenation.' },
+            { title: 'Youthful Aging Support', meta: 'NAD+ Optimization', description: 'Boosts NAD+ levels to support DNA repair, cellular energy, and the activation of longevity genes for healthy aging.' }
+        ]
+    };
+
+    // Toggle Product Switch
+    toggleButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const product = btn.dataset.product;
+            if (organSystemsSection.dataset.activeProduct === product) return;
+
+            // Update active product
+            organSystemsSection.dataset.activeProduct = product;
+
+            // Update section class for background transition
+            if (product === 'longevity') {
+                organSystemsSection.classList.add('organ-systems--longevity');
+                organSystemsSection.classList.remove('organ-systems--essentials');
+            } else {
+                organSystemsSection.classList.add('organ-systems--essentials');
+                organSystemsSection.classList.remove('organ-systems--longevity');
+            }
+
+            // Update toggle buttons
+            toggleButtons.forEach(b => {
+                if (b.dataset.product === product) {
+                    b.classList.add('organ-systems__toggle-btn--active');
+                    b.setAttribute('aria-selected', 'true');
+                } else {
+                    b.classList.remove('organ-systems__toggle-btn--active');
+                    b.setAttribute('aria-selected', 'false');
+                }
+            });
+
+            // Switch content panels
+            contents.forEach(content => {
+                if (content.dataset.content === product) {
+                    content.classList.add('organ-systems__content--active');
+                } else {
+                    content.classList.remove('organ-systems__content--active');
+                }
+            });
+        });
+    });
+
+    // Card Selection and Detail Panel Update
+    function setupCardInteractions(product) {
+        const contentPanel = organSystemsSection.querySelector(`[data-content="${product}"]`);
+        if (!contentPanel) return;
+
+        const cards = contentPanel.querySelectorAll('.organ-card');
+        const detailContents = contentPanel.querySelectorAll('.organ-detail__content');
+
+        cards.forEach((card, index) => {
+            card.addEventListener('click', () => {
+                // Update active card
+                cards.forEach(c => c.classList.remove('organ-card--active'));
+                card.classList.add('organ-card--active');
+
+                // Update detail panel content
+                detailContents.forEach(detail => {
+                    if (parseInt(detail.dataset.detail) === index) {
+                        detail.classList.add('organ-detail__content--active');
+                        
+                        // Update detail content with data
+                        const data = organSystemsData[product][index];
+                        const title = detail.querySelector('h3');
+                        const meta = detail.querySelector('.tracking-\\[0\\.18em\\]');
+                        const description = detail.querySelector('p');
+                        const number = detail.querySelector('.organ-detail__number');
+                        
+                        if (title) title.textContent = data.title;
+                        if (meta) meta.textContent = data.meta;
+                        if (description) description.textContent = data.description;
+                        if (number) number.textContent = String(index + 1).padStart(2, '0');
+                    } else {
+                        detail.classList.remove('organ-detail__content--active');
+                    }
+                });
+            });
+        });
+    }
+
+    // Initialize card interactions for both products
+    setupCardInteractions('essentials');
+    setupCardInteractions('longevity');
+});
