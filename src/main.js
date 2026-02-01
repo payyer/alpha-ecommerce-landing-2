@@ -831,3 +831,104 @@ document.addEventListener('DOMContentLoaded', () => {
     setupCardInteractions('essentials');
     setupCardInteractions('longevity');
 });
+
+// ========================================
+// Fixed Bottom Bar: Variant Selector Dropdown
+// ========================================
+document.addEventListener('DOMContentLoaded', () => {
+    const variantBtn = document.getElementById('variant-selector-btn');
+    const variantDropdown = document.getElementById('variant-dropdown');
+    const variantOptions = document.querySelectorAll('.variant-option');
+
+    if (!variantBtn || !variantDropdown) return;
+
+    // Toggle dropdown
+    variantBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        variantDropdown.classList.toggle('hidden');
+    });
+
+    // Close dropdown when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!variantBtn.contains(e.target) && !variantDropdown.contains(e.target)) {
+            variantDropdown.classList.add('hidden');
+        }
+    });
+
+    // Handle option selection
+    variantOptions.forEach(option => {
+        option.addEventListener('click', () => {
+            const value = option.getAttribute('data-value');
+            
+            // Update button text based on selected option
+            const btnTextContainer = variantBtn.querySelector('.flex.flex-col');
+            
+            if (value === '90-day') {
+                btnTextContainer.innerHTML = `
+                    <div class="font-bold text-[12px] tablet:text-[13px]">90-Day Supply</div>
+                    <div class="text-[10px] tablet:text-[11px] opacity-70">$4.73 AUD / serving</div>
+                `;
+            } else if (value === '60-day') {
+                btnTextContainer.innerHTML = `
+                    <div class="font-bold text-[12px] tablet:text-[13px]">60-Day Supply</div>
+                `;
+            } else if (value === '30-day') {
+                btnTextContainer.innerHTML = `
+                    <div class="font-bold text-[12px] tablet:text-[13px]">30-Day Supply (Save 20%)</div>
+                    <div class="text-[10px] tablet:text-[11px] opacity-70">$5.40 AUD / serving</div>
+                `;
+            }
+            
+            // Close dropdown
+            variantDropdown.classList.add('hidden');
+            
+            console.log('Selected variant:', value);
+        });
+    });
+
+    // Close on ESC key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && !variantDropdown.classList.contains('hidden')) {
+            variantDropdown.classList.add('hidden');
+        }
+    });
+});
+
+// ========================================
+// Sticky Top Announcement Bar (Show on Scroll)
+// ========================================
+document.addEventListener('DOMContentLoaded', () => {
+    const stickyTopBar = document.getElementById('sticky-top-bar');
+    if (!stickyTopBar) return;
+
+    let lastScrollY = window.scrollY;
+    const scrollThreshold = 100; // Show bar after scrolling 100px
+
+    const handleScroll = () => {
+        const currentScrollY = window.scrollY;
+
+        if (currentScrollY > scrollThreshold) {
+            // Show sticky bar when scrolled down
+            stickyTopBar.classList.remove('-translate-y-full');
+            stickyTopBar.classList.add('translate-y-0');
+        } else {
+            // Hide sticky bar when at top
+            stickyTopBar.classList.remove('translate-y-0');
+            stickyTopBar.classList.add('-translate-y-full');
+        }
+
+        lastScrollY = currentScrollY;
+    };
+
+    // Throttle scroll event for better performance
+    let ticking = false;
+    window.addEventListener('scroll', () => {
+        if (!ticking) {
+            window.requestAnimationFrame(() => {
+                handleScroll();
+                ticking = false;
+            });
+            ticking = true;
+        }
+    });
+});
