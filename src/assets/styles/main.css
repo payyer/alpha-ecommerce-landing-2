@@ -25,7 +25,7 @@
 
 
     .container-custom {
-        @apply mx-auto w-full px-5 wide:px-[50px] max-w-[709px] tablet:max-w-[1500px];
+        @apply mx-auto w-full px-[20px] wide:px-[50px] max-w-[709px] tablet:max-w-[1500px];
     }
 
     .nav-link {
