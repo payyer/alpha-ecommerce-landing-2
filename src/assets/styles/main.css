@@ -11,7 +11,7 @@
     }
 
     body {
-        @apply text-[#000000] font-inter antialiased;
+        @apply text-[#000000] font-aeonik antialiased;
         background: #fff url(//im8health.com/cdn/shop/files/Frame_1000004811-min.jpg?v=1727698766) no-repeat top center;
         background-size: 100% auto;
     }
