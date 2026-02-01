@@ -703,7 +703,7 @@ document.addEventListener('DOMContentLoaded', () => {
             spaceBetween: 15,
             loop: true,
             loopedSlides: 12, // Double the slides for bidirectional loop
-            speed: 4000,
+            speed: 8000,
             grabCursor: true,
             allowTouchMove: true,
             watchSlidesProgress: true,
